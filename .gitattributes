@@ -1,0 +1,7 @@
+*.png filter=flts diff=lfs merge=lfs -text
+*.stex filter=flts diff=lfs merge=lfs -text
+*.scn filter=flts diff=lfs merge=lfs -text
+*.material filter=flts diff=lfs merge=lfs -text
+*.so filter=flts diff=lfs merge=lfs -text
+*.dll filter=flts diff=lfs merge=lfs -text
+*.glb filter=flts diff=lfs merge=lfs -text
