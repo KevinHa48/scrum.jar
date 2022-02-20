@@ -4,10 +4,10 @@ This is a music game which uses a variety of inputs such as traditional computer
 The gameplay is simple to learn for everyone to maximize interactivity while minimizing stress. It uses a combination of both psychedelic and music therapy to achieve our project goal and offer a simple game that will help others to improve their mental state.
 
 ## Team Members
-- [Kevin Ha](github.com/KevinHa48) (Scrum Master)
-- [Jackson Perry](github.com/jackperry2187)
-- [Tyler Kaminski](github.com/durcor)
-- [Jacob Gerega](github.com/jgerega107)
-- [Yakov Kazinets](github.com/yakovkazinets)
-- [William Kastell](github.com/liamsusername)
-- [Matthew Oyales](github.com/moyales)
+- [Kevin Ha](https://github.com/KevinHa48) (Scrum Master)
+- [Jackson Perry](https://github.com/jackperry2187)
+- [Tyler Kaminski](https://github.com/durcor)
+- [Jacob Gerega](https://github.com/jgerega107)
+- [Yakov Kazinets](https://github.com/yakovkazinets)
+- [William Kastell](https://github.com/liamsusername)
+- [Matthew Oyales](https://github.com/moyales)
