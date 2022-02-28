@@ -1,11 +1,11 @@
 [![Build Godot Project](https://github.com/KevinHa48/scrum.jar/actions/workflows/build.yml/badge.svg)](https://github.com/KevinHa48/scrum.jar/actions/workflows/build.yml)
 
 # scrum.jar
-This project is a game that involves auditory and visual stimulations meant to provide a de-stressing experience for stressed office workers and professionals.
-This is a music game which uses a variety of inputs such as traditional computer inputs (keyboard, mouse) and soothing music and visuals to calm individuals and invoke a sense of relaxation through immersive  and calming gameplay.
+This project is a virtual reality game involving auditory and visual stimulations to provide a de-stressing experience for stressed industry professionals.
+This is an interactive music visualization game which uses a variety of inputs such as traditional computer inputs (keyboard, mouse) or virtual reality controls (motion controller) and soothing music and visuals to calm individuals and invoke a sense of relaxation through experiential immersion.
 The gameplay is simple to learn for everyone to maximize interactivity while minimizing stress. It uses a combination of both psychedelic and music therapy to achieve our project goal and offer a simple game that will help others to improve their mental state.
 
-# Requirements
+## Requirements
 - OpenVR implementation (usually SteamVR)
 
 ## Team Members
