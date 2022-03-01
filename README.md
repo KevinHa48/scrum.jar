@@ -6,7 +6,15 @@ This is an interactive music visualization game which uses a variety of inputs s
 The gameplay is simple to learn for everyone to maximize interactivity while minimizing stress. It uses a combination of both psychedelic and music therapy to achieve our project goal and offer a simple game that will help others to improve their mental state.
 
 ## Requirements
-- OpenVR implementation (usually SteamVR)
+- OpenVR implementation running (usually SteamVR)
+
+## Usage
+- Download the executable for your platform (Windows and Linux are currently supported)
+- Run the executable
+
+## Testing
+Testing is currently implemented using the [Built Godot Project](https://github.com/josephbmanley/build-godot-action) GitHub Action to attempt to build the project and create packaged binaries for use by scrum.jar developers and its end users, implementing continuous integration and continuous development to ensure each commit allows the continued operation of the project.
+The status of various features of the game are also tracked in `test.py` which is used by developers and testers to determine if the working prototype of the game is functioning as determined.
 
 ## Team Members
 - [Kevin Ha](https://github.com/KevinHa48) (Scrum Master)
