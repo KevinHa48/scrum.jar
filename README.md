@@ -10,6 +10,8 @@ The gameplay is simple to learn for everyone to maximize interactivity while min
 
 ## Usage
 - Download the executable for your platform (Windows and Linux are currently supported)
+    - Windows: https://github.com/KevinHa48/scrum.jar/suites/5480516952/artifacts/174842271
+    - Linux: https://github.com/KevinHa48/scrum.jar/suites/5480516952/artifacts/174842270
 - Run the executable
 
 ## Testing
