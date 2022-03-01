@@ -73,9 +73,13 @@ __meta__ = {
 margin_top = 88.0
 margin_right = 422.0
 margin_bottom = 218.0
+window_title = "Open a File"
 resizable = true
+mode = 0
 access = 2
 current_dir = "/Users/lkpow/Documents/School Assignments/CS555/scrum.jar"
 current_path = "/Users/lkpow/Documents/School Assignments/CS555/scrum.jar/"
 
+[connection signal="text_changed" from="NinePatchRect/VBoxContainer/LineEdit" to="." method="_on_LineEdit_text_changed"]
 [connection signal="pressed" from="NinePatchRect/VBoxContainer/BrowseBtn" to="." method="_on_BrowseBtn_pressed"]
+[connection signal="file_selected" from="NinePatchRect/VBoxContainer/UploadDlg" to="." method="_on_UploadDlg_file_selected"]
