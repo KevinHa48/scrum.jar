@@ -18,6 +18,9 @@ margin_right = 678.0
 margin_bottom = 348.0
 theme = SubResource( 1 )
 script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 anchor_left = 0.5
@@ -45,9 +48,8 @@ window_title = "Open a File"
 resizable = true
 mode = 0
 access = 2
-
-current_dir = "/Users/after/Documents/github/scrum.jar"
-current_path = "/Users/after/Documents/github/scrum.jar/"
+current_dir = "/home/ty/src/scrum.jar"
+current_path = "/home/ty/src/scrum.jar/"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect"]
 anchor_right = 1.0
