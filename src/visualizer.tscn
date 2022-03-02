@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/MusicUploadScreen.tscn" type="PackedScene" id=2]
 
@@ -7,6 +7,21 @@
 [sub_resource type="ShaderMaterial" id=2]
 
 [sub_resource type="CubeMesh" id=3]
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0, 0.546012, 1 )
+colors = PoolColorArray( 1, 0.46875, 0, 1, 0.933594, 0.0692902, 0.0692902, 1, 1, 0.46875, 0, 1 )
+
+[sub_resource type="GradientTexture" id=7]
+gradient = SubResource( 4 )
+
+[sub_resource type="PanoramaSky" id=6]
+radiance_size = 0
+panorama = SubResource( 7 )
+
+[sub_resource type="Environment" id=8]
+background_mode = 2
+background_sky = SubResource( 6 )
 
 [node name="Spatial" type="Spatial"]
 
@@ -30,3 +45,6 @@ margin_left = -510.0
 margin_top = -304.0
 margin_right = 514.0
 margin_bottom = 296.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 8 )
