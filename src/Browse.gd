@@ -1,6 +1,7 @@
 extends Control
 
 var filePath = ""
+var musicDir = ""
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -24,7 +25,20 @@ func _on_UploadDlg_file_selected(path):
 	$NinePatchRect/VBoxContainer/LineEdit.text = path
 	filePath = path
 
-
 func _on_LineEdit_text_changed(new_text):
 	filePath = new_text
-	print(filePath)
+
+
+func _on_ConfirmBtn_pressed():
+	var file = File.new()
+	file.open(filePath, File.READ)
+	if file.file_exists(filePath):
+		file.open(filePath, File.READ)
+		var audio = AudioStreamMP3.new()
+		audio.set_data(file.get_buffer(file.get_len()))
+		$NinePatchRect/AudioTester.set_stream(audio)
+		$NinePatchRect/AudioTester.play()
+		
+		
+			
+	
