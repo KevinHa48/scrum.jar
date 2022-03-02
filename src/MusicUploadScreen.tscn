@@ -12,10 +12,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -512.0
-margin_top = -300.0
-margin_right = 512.0
-margin_bottom = 300.0
+margin_left = -346.0
+margin_top = -252.0
+margin_right = 678.0
+margin_bottom = 348.0
 theme = SubResource( 1 )
 script = ExtResource( 4 )
 
