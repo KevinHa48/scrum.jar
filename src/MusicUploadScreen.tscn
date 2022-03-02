@@ -40,10 +40,12 @@ margin_left = -211.0
 margin_top = -122.0
 margin_right = 211.0
 margin_bottom = 122.0
+rect_min_size = Vector2( 400, 140 )
 window_title = "Open a File"
 resizable = true
 mode = 0
 access = 2
+
 current_dir = "/Users/after/Documents/github/scrum.jar"
 current_path = "/Users/after/Documents/github/scrum.jar/"
 
