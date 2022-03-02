@@ -18,7 +18,7 @@ func _ready():
 
 
 func _on_BrowseBtn_pressed():
-	$NinePatchRect/VBoxContainer/UploadDlg.popup()
+	$NinePatchRect/UploadDlg.popup()
 	
 
 func _on_UploadDlg_file_selected(path):
