@@ -34,11 +34,19 @@ func _on_ConfirmBtn_pressed():
 	file.open(filePath, File.READ)
 	if file.file_exists(filePath):
 		file.open(filePath, File.READ)
-		var audio = AudioStreamMP3.new()
+		#var audio = AudioStreamMP3.new()
+		var audio = determineFileType()
 		audio.set_data(file.get_buffer(file.get_len()))
 		$NinePatchRect/AudioTester.set_stream(audio)
 		$NinePatchRect/AudioTester.play()
 		
+func determineFileType():
+	if filePath.ends_with(".ogg"):
+		return AudioStreamOGGVorbis.new()
+	elif filePath.ends_with(".wav"):
+		return AudioStreamSample.new()
+	else:
+		return AudioStreamMP3.new()
 		
 			
 	
