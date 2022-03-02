@@ -38,6 +38,7 @@ func _on_ConfirmBtn_pressed():
 		audio.set_data(file.get_buffer(file.get_len()))
 		$NinePatchRect/AudioTester.set_stream(audio)
 		$NinePatchRect/AudioTester.play()
+		hide()
 		
 		
 			
