@@ -31,6 +31,11 @@ func calcColors(delta):
 func _process(delta):	
 	calcColors(delta)
 	# Incorrect point change here..
+	var gradient1 = self
+	gradient1.set_color(1, Color(r,g,b,1))
+	#$MeshInstance.material_override = material	
 	print(self.get_colors())
+	#self.set_gradient(gradient1)
 	self.set_color(1, Color(r,g,b,1))
+	print(self.get_colors())
 	pass
