@@ -19,11 +19,12 @@ func _ready():
 
 func _on_BrowseBtn_pressed():
 	$NinePatchRect/UploadDlg.popup()
-	
+
 
 func _on_UploadDlg_file_selected(path):
 	$NinePatchRect/VBoxContainer/LineEdit.text = path
 	filePath = path
+
 
 func _on_LineEdit_text_changed(new_text):
 	filePath = new_text
@@ -36,14 +37,16 @@ func _on_ConfirmBtn_pressed():
 		file.open(filePath, File.READ)
 		var audio = determineFileType()
 		if audio:
-            audio.set_data(file.get_buffer(file.get_len()))
-            # Add file to musicDir
-            addToMusicDir(file)
-            $NinePatchRect/AudioTester.set_stream(audio)
-            $NinePatchRect/AudioTester.play()
-            hide()
+			audio.set_data(file.get_buffer(file.get_len()))
+			# Add file to musicDir
+			addToMusicDir(file)
+			$NinePatchRect/AudioTester.set_stream(audio)
+			$NinePatchRect/AudioTester.play()
+			hide()
+		else:
+			$NinePatchRect/VBoxContainer/LineEdit.text = "Given file cannot be played."
 
-		
+
 func determineFileType():
 	if filePath.ends_with(".ogg"):
 		return AudioStreamOGGVorbis.new()
