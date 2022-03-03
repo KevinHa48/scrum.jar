@@ -17,8 +17,8 @@ The gameplay is simple to learn for everyone to maximize interactivity while min
 
 ## Usage
 - Download the executable for your platform (Windows and Linux are currently supported)
-    - Windows: https://github.com/KevinHa48/scrum.jar/suites/5480516952/artifacts/174842271
-    - Linux: https://github.com/KevinHa48/scrum.jar/suites/5480516952/artifacts/174842270
+    - Windows: https://github.com/KevinHa48/scrum.jar/releases/download/s1/Client.-.windows.zip
+    - Linux: https://github.com/KevinHa48/scrum.jar/releases/download/s1/Client.-.linux.zip
 - Extract the zip archive
 - Run the executable (currently named `example`)
 
