@@ -2,9 +2,9 @@ extends Node
 
 
 # Declare member variables here.
-var r = 0.0; var rup = true;
-var g = 0.0; var gup = true;
-var b = 0.0; var bup = true;
+var r = 0.5; var rup = true;
+var g = 0.5; var gup = true;
+var b = 0.5; var bup = true;
 
 
 # Called when the node enters the scene tree for the first time.
@@ -13,11 +13,11 @@ func _ready():
 
 func calcColors(delta):
 	if(r >= 1.0): rup = false;
-	elif(r <= 0.0): rup = true;
+	elif(r <= 0.5): rup = true;
 	if(g >= 1.0): gup = false;
-	elif(g <= 0.0): gup = true;
+	elif(g <= 0.5): gup = true;
 	if(b >= 1.0): bup = false;
-	elif(b <= 0.0): bup = true;
+	elif(b <= 0.5): bup = true;
 	
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
