@@ -6,7 +6,7 @@ This is an interactive music visualization game which uses a variety of inputs s
 The gameplay is simple to learn for everyone to maximize interactivity while minimizing stress. It uses a combination of both psychedelic and music therapy to achieve our project goal and offer a simple game that will help others to improve their mental state.
 
 ## Setting Up Development Environment
-- Install latest stable version of the Godot game engine
+- Install latest stable version of the Godot game engine (https://godotengine.org/download)
 - Pull this project
 - Import this project's root directory into Godot
 - Open the scene you wish you develop or test for (currently music visualizer and spatial vr test)
