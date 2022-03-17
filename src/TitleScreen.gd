@@ -15,3 +15,12 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_MusicUploadBtn_pressed():
+	$NinePatchRect.visible = false
+	$MusicUploadScreen.visible = true
+
+
+func _on_QuitBtn_pressed():
+	get_tree().quit()

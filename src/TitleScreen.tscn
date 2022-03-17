@@ -11,6 +11,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 4 )
 
+[node name="MusicUploadScreen" parent="." instance=ExtResource( 5 )]
+anchor_left = -0.488
+anchor_top = -0.448
+anchor_right = 1.496
+anchor_bottom = 1.404
+margin_left = 498.712
+margin_top = 269.8
+margin_right = -508.904
+margin_bottom = -241.4
+rect_min_size = Vector2( 1024, 600 )
+
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -33,16 +44,17 @@ rect_pivot_offset = Vector2( -405, -147 )
 alignment = 1
 
 [node name="TitleLbl" type="Label" parent="NinePatchRect/VBoxContainer"]
-margin_top = 52.0
+margin_top = 38.0
 margin_right = 426.0
-margin_bottom = 66.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 79, 42 )
 text = "[TEMP TITLE]"
 align = 1
 
 [node name="PlayBtn" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
-margin_top = 70.0
+margin_top = 84.0
 margin_right = 426.0
-margin_bottom = 95.0
+margin_bottom = 109.0
 rect_min_size = Vector2( 80, 25 )
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 2 )
@@ -62,9 +74,9 @@ __meta__ = {
 }
 
 [node name="MusicUploadBtn" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
-margin_top = 99.0
+margin_top = 113.0
 margin_right = 426.0
-margin_bottom = 124.0
+margin_bottom = 138.0
 rect_min_size = Vector2( 80, 25 )
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 2 )
@@ -87,9 +99,9 @@ __meta__ = {
 }
 
 [node name="OptsBtn" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
-margin_top = 128.0
+margin_top = 142.0
 margin_right = 426.0
-margin_bottom = 153.0
+margin_bottom = 167.0
 rect_min_size = Vector2( 80, 25 )
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 2 )
@@ -111,9 +123,9 @@ __meta__ = {
 }
 
 [node name="QuitBtn" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
-margin_top = 157.0
+margin_top = 171.0
 margin_right = 426.0
-margin_bottom = 182.0
+margin_bottom = 196.0
 rect_min_size = Vector2( 80, 25 )
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 2 )
@@ -134,7 +146,6 @@ __meta__ = {
 
 [node name="AudioPlayer" type="AudioStreamPlayer2D" parent="NinePatchRect"]
 
-[node name="MusicUploadScreen" parent="." instance=ExtResource( 5 )]
-visible = false
-margin_top = -298.0
-margin_bottom = 302.0
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/MusicUploadBtn" to="." method="_on_MusicUploadBtn_pressed"]
+[connection signal="toggled" from="NinePatchRect/VBoxContainer/MusicUploadBtn" to="." method="_on_MusicUploadBtn_toggled"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/QuitBtn" to="." method="_on_QuitBtn_pressed"]
