@@ -1,23 +1,25 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/ScreenBackgroundTextTemp.jpg" type="Texture" id=1]
 [ext_resource path="res://assets/ButtonPressedTemp.jpg" type="Texture" id=2]
 [ext_resource path="res://assets/ButtonUnpressedTemp.jpg" type="Texture" id=3]
+[ext_resource path="res://src/TitleScreen.gd" type="Script" id=4]
+[ext_resource path="res://src/MusicUploadScreen.tscn" type="PackedScene" id=5]
 
 [node name="TitleScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 4 )
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -256.0
-margin_top = -150.0
-margin_right = 256.0
-margin_bottom = 150.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 252.0
+margin_top = 147.0
+margin_right = -256.0
+margin_bottom = -129.0
 rect_min_size = Vector2( 512, 300 )
+rect_pivot_offset = Vector2( -203, -89 )
 texture = ExtResource( 1 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect"]
@@ -28,20 +30,25 @@ margin_top = 45.0
 margin_right = -45.0
 margin_bottom = -45.0
 rect_pivot_offset = Vector2( -405, -147 )
+alignment = 1
 
 [node name="TitleLbl" type="Label" parent="NinePatchRect/VBoxContainer"]
-margin_right = 422.0
-margin_bottom = 14.0
+margin_top = 52.0
+margin_right = 426.0
+margin_bottom = 66.0
 text = "[TEMP TITLE]"
 align = 1
 
 [node name="PlayBtn" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
-margin_top = 18.0
-margin_right = 422.0
-margin_bottom = 43.0
+margin_top = 70.0
+margin_right = 426.0
+margin_bottom = 95.0
+rect_min_size = Vector2( 80, 25 )
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 2 )
 texture_disabled = ExtResource( 2 )
+expand = true
+stretch_mode = 3
 
 [node name="PlayLbl" type="Label" parent="NinePatchRect/VBoxContainer/PlayBtn"]
 anchor_right = 1.0
@@ -54,17 +61,47 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="OptsBtn2" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
-margin_top = 47.0
-margin_right = 422.0
-margin_bottom = 72.0
+[node name="MusicUploadBtn" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
+margin_top = 99.0
+margin_right = 426.0
+margin_bottom = 124.0
+rect_min_size = Vector2( 80, 25 )
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 2 )
 texture_disabled = ExtResource( 2 )
+expand = true
+stretch_mode = 3
 
-[node name="OptsLbl" type="Label" parent="NinePatchRect/VBoxContainer/OptsBtn2"]
-anchor_right = 1.0
-anchor_bottom = 0.84
+[node name="MusicUploadLbl" type="Label" parent="NinePatchRect/VBoxContainer/MusicUploadBtn"]
+anchor_left = 0.00704225
+anchor_top = 0.04
+anchor_right = 0.994542
+anchor_bottom = 1.0
+margin_bottom = 1.0
+rect_min_size = Vector2( 80, 25 )
+text = "Upload"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="OptsBtn" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
+margin_top = 128.0
+margin_right = 426.0
+margin_bottom = 153.0
+rect_min_size = Vector2( 80, 25 )
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 2 )
+texture_disabled = ExtResource( 2 )
+expand = true
+stretch_mode = 3
+
+[node name="OptsLbl" type="Label" parent="NinePatchRect/VBoxContainer/OptsBtn"]
+anchor_left = 0.00234742
+anchor_top = 0.04
+anchor_right = 1.00235
+anchor_bottom = 0.88
 margin_bottom = 4.0
 text = "Options"
 align = 1
@@ -72,3 +109,32 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
+
+[node name="QuitBtn" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
+margin_top = 157.0
+margin_right = 426.0
+margin_bottom = 182.0
+rect_min_size = Vector2( 80, 25 )
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 2 )
+texture_disabled = ExtResource( 2 )
+expand = true
+stretch_mode = 3
+
+[node name="QuitLbl" type="Label" parent="NinePatchRect/VBoxContainer/QuitBtn"]
+anchor_right = 1.0
+anchor_bottom = 0.84
+margin_bottom = 4.0
+text = "Quit"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="NinePatchRect"]
+
+[node name="MusicUploadScreen" parent="." instance=ExtResource( 5 )]
+visible = false
+margin_top = -298.0
+margin_bottom = 302.0
