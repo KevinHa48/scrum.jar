@@ -16,7 +16,6 @@ func _ready():
 #func _process(delta):
 #	pass
 
-
 func _on_MusicUploadBtn_pressed():
 	$NinePatchRect.visible = false
 	$MusicUploadScreen.visible = true
@@ -24,3 +23,8 @@ func _on_MusicUploadBtn_pressed():
 
 func _on_QuitBtn_pressed():
 	get_tree().quit()
+
+
+func _on_OptsBtn_pressed():
+	$NinePatchRect.visible = false
+	$OptionsMenuScreen.visible = true
