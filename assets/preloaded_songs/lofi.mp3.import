@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/lofi.mp3-08442e162979c96d9f35246c66bd125b.mp3str"
+
+[deps]
+
+source_file="res://assets/preloaded_songs/lofi.mp3"
+dest_files=[ "res://.import/lofi.mp3-08442e162979c96d9f35246c66bd125b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

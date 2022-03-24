@@ -28,3 +28,4 @@ func _on_QuitBtn_pressed():
 func _on_OptsBtn_pressed():
 	$NinePatchRect.visible = false
 	$OptionsMenuScreen.visible = true
+
