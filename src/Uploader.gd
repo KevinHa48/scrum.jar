@@ -101,7 +101,7 @@ func _on_ConfirmBtn_pressed():
 			$AudioStreamPlayer.play()
 			
 			displayGenres()
-			# hide()
+			hide()
 		else:
 			$NinePatchRect/VBoxContainer/LineEdit.text = "Given file cannot be played."
 
