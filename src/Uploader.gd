@@ -22,23 +22,30 @@ func _on_BrowseBtn_pressed():
 
 func _on_AddGenreBtn_pressed():
 	var file = File.new()
+	var fileName = filePath.get_file()
+	
+	if file.file_exists(filePath):
+		addToMusicDir()
+	
 	if file.file_exists("res://savedsongs.txt"):
 		file.open("res://savedsongs.txt", File.READ_WRITE)
 		var tempFile = File.new()
 		tempFile.open("res://temp.txt", File.WRITE)
 		
 		var entry;
+		var fileExists = false
 		while !file.eof_reached():
 			entry = file.get_csv_line()
 			if entry.size() > 0:
-				if entry[0] == filePath:
+				if entry[0] == fileName:
 					entry.append($NinePatchRect/VBoxContainer/GenreInput.text)
+					fileExists = true
 				tempFile.store_csv_line(entry)
 		
-		if file.eof_reached() && entry[0] != filePath:
+		if file.eof_reached() && !fileExists:
 			tempFile.store_csv_line(
 				PoolStringArray(
-					[filePath, $NinePatchRect/VBoxContainer/GenreInput.text]))
+					[fileName, $NinePatchRect/VBoxContainer/GenreInput.text]))
 		
 		file.close()
 		tempFile.close()
@@ -49,20 +56,19 @@ func _on_AddGenreBtn_pressed():
 	else:
 		file.open("res://savedsongs.txt", File.WRITE_READ)
 		var dir = Directory.new()
-		dir.change_dir(musicDir)
+		dir.open(musicDir)
 		dir.list_dir_begin(true, true)
+		
 		var entry = dir.get_next()
 		while entry != "":
-			print(entry)
-			addToMusicDir()
-			if entry == filePath:
+			if entry == fileName:
 				file.store_csv_line(
 					PoolStringArray(
-						[filePath, $NinePatchRect/VBoxContainer/GenreInput.text]))
+						[fileName, $NinePatchRect/VBoxContainer/GenreInput.text]))
 			else:
 				file.store_csv_line(
 					PoolStringArray(
-						[filePath]
+						[entry]
 					)
 				)
 			
