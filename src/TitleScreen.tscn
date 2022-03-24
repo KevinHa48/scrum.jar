@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/ScreenBackgroundTextTemp.jpg" type="Texture" id=1]
 [ext_resource path="res://assets/ButtonPressedTemp.jpg" type="Texture" id=2]
 [ext_resource path="res://assets/ButtonUnpressedTemp.jpg" type="Texture" id=3]
 [ext_resource path="res://src/TitleScreen.gd" type="Script" id=4]
 [ext_resource path="res://src/MusicUploadScreen.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/OptionsMenuScreen.tscn" type="PackedScene" id=6]
 
 [node name="TitleScreen" type="Control"]
 anchor_right = 1.0
@@ -12,6 +13,7 @@ anchor_bottom = 1.0
 script = ExtResource( 4 )
 
 [node name="MusicUploadScreen" parent="." instance=ExtResource( 5 )]
+visible = false
 anchor_left = -0.488
 anchor_top = -0.448
 anchor_right = 1.496
@@ -146,6 +148,10 @@ __meta__ = {
 
 [node name="AudioPlayer" type="AudioStreamPlayer2D" parent="NinePatchRect"]
 
+[node name="OptionsMenuScreen" parent="." instance=ExtResource( 6 )]
+visible = false
+
 [connection signal="pressed" from="NinePatchRect/VBoxContainer/MusicUploadBtn" to="." method="_on_MusicUploadBtn_pressed"]
 [connection signal="toggled" from="NinePatchRect/VBoxContainer/MusicUploadBtn" to="." method="_on_MusicUploadBtn_toggled"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/OptsBtn" to="." method="_on_OptsBtn_pressed"]
 [connection signal="pressed" from="NinePatchRect/VBoxContainer/QuitBtn" to="." method="_on_QuitBtn_pressed"]
