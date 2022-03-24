@@ -29,10 +29,10 @@ func _prepare_resolutions():
 
 func _on_screenmode_options_item_selected(index):
 	if(index == 0):
-		OS.window_fullscreen = true;
+		OS.window_fullscreen = true
 	elif(index == 1):
-		pass
 		#toggle Windowed
+		OS.window_fullscreen = false
 	else:
 		pass
 		#toggle Borderless Windowed
