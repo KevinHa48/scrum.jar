@@ -9,12 +9,8 @@ var definition = 60
 var min_freq = 20
 var max_freq = 20000
 
-# For linear visualizer
-var w = 1600
+# Size adjuster
 var h = 800
-# For radial visualizer
-var radius = 350
-var length = 200
 
 var max_db = 0
 var min_db = -40
@@ -59,9 +55,9 @@ func _process(delta):
 func _draw():
 	# Linear Visualiser
 	if visualizer == "linear":
+		var w = h * 2
 		var draw_pos = Vector2(0, 0)
 		var w_interval = w / definition
-		
 		draw_line(Vector2(0, -h), Vector2(w, -h), Color.crimson, 2.0, true)
 		
 		for i in range(definition):
@@ -71,10 +67,11 @@ func _draw():
 	elif visualizer == "circle":
 		var angle = PI
 		var angle_interval = 2 * PI / definition
-		
+		var r = h / 2
+		var L = r
 		for i in range(definition):
 			var normal = Vector2(0, -1).rotated(angle)
-			var start_pos = normal * radius
-			var end_pos = normal * (radius + histogram[i] * length)
+			var start_pos = normal * r
+			var end_pos = normal * (r + histogram[i] * L)
 			draw_line(start_pos, end_pos, Color.dodgerblue, 4.0, true)
 			angle += angle_interval
