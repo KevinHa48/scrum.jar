@@ -20,6 +20,16 @@ func _ready():
 func _on_BrowseBtn_pressed():
 	$NinePatchRect/UploadDlg.popup()
 
+
+func _on_UploadedBtn_pressed():
+	var dir = Directory.new()
+	if dir.dir_exists(musicDir):
+		$NinePatchRect/UploadDlg.access = 1
+		$NinePatchRect/UploadDlg.current_dir = musicDir
+		$NinePatchRect/UploadDlg.current_path = musicDir
+		$NinePatchRect/UploadDlg.popup()
+
+
 func _on_AddGenreBtn_pressed():
 	var file = File.new()
 	var fileName = filePath.get_file()
