@@ -24,25 +24,30 @@ func _on_AddGenreBtn_pressed():
 	var file = File.new()
 	if file.file_exists("savedsongs.csv"):
 		file.open("savedsongs.csv", File.READ_WRITE)
+		var tempFile = File.new()
+		tempFile.open("temp.csv", File.WRITE)
 		
 		var entry;
 		while !file.eof_reached():
 			entry = file.get_csv_line()
 			if entry[0] == filePath:
 				entry.append($NinePatchRect/VBoxContainer/GenreInput.text)
-				file.store_csv_line(entry)
-				break
+			tempFile.store_csv_line(entry)
 		
-		if entry[0] != filePath:
-			file.store_csv_line(
+		if file.eof_reached() && entry[0] != filePath:
+			tempFile.store_csv_line(
 				PoolStringArray(
 					[filePath, $NinePatchRect/VBoxContainer/GenreInput.text]))
 		
-			
+		file.close()
+		tempFile.close()
+		
+		var dir = Directory.new()
+		dir.remove("res://savedsongs.csv")
+		dir.rename("res://temp.csv", "res://savedsongs.csv")		
 	else:
 		file.open("savedsongs.csv", File.WRITE_READ)
-	while !file.eof_reached():
-		file.get_csv_line()
+		var dir = Directory.new()
 
 func _on_UploadDlg_file_selected(path):
 	$NinePatchRect/VBoxContainer/FilePathInput.text = path
