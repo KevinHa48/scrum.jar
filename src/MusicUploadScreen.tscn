@@ -113,21 +113,27 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Add Genre" type="Label" parent="NinePatchRect/VBoxContainer"]
+[node name="Genres" type="Label" parent="NinePatchRect/VBoxContainer"]
 margin_top = 93.0
 margin_right = 422.0
 margin_bottom = 107.0
+text = "Genres:"
+
+[node name="Add Genre" type="Label" parent="NinePatchRect/VBoxContainer"]
+margin_top = 111.0
+margin_right = 422.0
+margin_bottom = 125.0
 text = "Add Genre:"
 
 [node name="GenreInput" type="LineEdit" parent="NinePatchRect/VBoxContainer"]
-margin_top = 111.0
+margin_top = 129.0
 margin_right = 422.0
-margin_bottom = 135.0
+margin_bottom = 153.0
 
 [node name="AddGenreBtn" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
-margin_top = 139.0
+margin_top = 157.0
 margin_right = 422.0
-margin_bottom = 164.0
+margin_bottom = 182.0
 rect_min_size = Vector2( 30, 25 )
 size_flags_horizontal = 3
 texture_normal = ExtResource( 2 )
@@ -140,7 +146,7 @@ __meta__ = {
 [node name="AddGenreLbl" type="Label" parent="NinePatchRect/VBoxContainer/AddGenreBtn"]
 margin_left = 15.0
 margin_top = 6.0
-margin_right = 65.0
+margin_right = 437.0
 margin_bottom = 20.0
 text = "Confirm"
 __meta__ = {

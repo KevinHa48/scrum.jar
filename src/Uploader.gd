@@ -27,10 +27,10 @@ func _on_AddGenreBtn_pressed():
 	if file.file_exists(filePath):
 		addToMusicDir()
 	
-	if file.file_exists("res://savedsongs.txt"):
-		file.open("res://savedsongs.txt", File.READ_WRITE)
+	if file.file_exists("user://savedsongs.txt"):
+		file.open("user://savedsongs.txt", File.READ_WRITE)
 		var tempFile = File.new()
-		tempFile.open("res://temp.txt", File.WRITE)
+		tempFile.open("user://temp.txt", File.WRITE)
 		
 		var entry;
 		var fileExists = false
@@ -51,10 +51,10 @@ func _on_AddGenreBtn_pressed():
 		tempFile.close()
 		
 		var dir = Directory.new()
-		dir.remove("res://savedsongs.txt")
-		dir.rename("res://temp.txt", "res://savedsongs.txt")		
+		dir.remove("user://savedsongs.txt")
+		dir.rename("user://temp.txt", "user://savedsongs.txt")		
 	else:
-		file.open("res://savedsongs.txt", File.WRITE_READ)
+		file.open("user://savedsongs.txt", File.WRITE_READ)
 		var dir = Directory.new()
 		dir.open(musicDir)
 		dir.list_dir_begin(true, true)
@@ -80,11 +80,12 @@ func _on_AddGenreBtn_pressed():
 func _on_UploadDlg_file_selected(path):
 	$NinePatchRect/VBoxContainer/FilePathInput.text = path
 	filePath = path
+	$NinePatchRect/VBoxContainer/Genres.text = "Genres: "
 
 
 func _on_LineEdit_text_changed(new_text):
 	filePath = new_text
-
+	$NinePatchRect/VBoxContainer/Genres.text = "Genres: "
 
 func _on_ConfirmBtn_pressed():
 	var file = File.new()
@@ -98,6 +99,8 @@ func _on_ConfirmBtn_pressed():
 			addToMusicDir()
 			$AudioStreamPlayer.set_stream(audio)
 			$AudioStreamPlayer.play()
+			
+			displayGenres()
 			# hide()
 		else:
 			$NinePatchRect/VBoxContainer/LineEdit.text = "Given file cannot be played."
@@ -111,7 +114,18 @@ func determineFileType():
 	elif filePath.ends_with(".mp3"):
 		return AudioStreamMP3.new()
 
-
+func displayGenres():
+	$NinePatchRect/VBoxContainer/Genres.text = "Genres: "
+	var file = File.new()
+	file.open("user://savedsongs.txt", file.READ)
+	while !file.eof_reached():
+		var entry = file.get_csv_line()
+		if entry[0] == filePath.get_file():
+			for e in range(1, entry.size() - 1):
+				$NinePatchRect/VBoxContainer/Genres.text += entry[e] + ", "
+			$"NinePatchRect/VBoxContainer/Genres".text += entry[entry.size() - 1]
+			
+	
 # Attempting to add file to User data.
 func addToMusicDir():
 	var dir = Directory.new()
