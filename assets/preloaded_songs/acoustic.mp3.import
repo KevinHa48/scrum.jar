@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/acoustic.mp3-656903a1e9ea89bd75c9a876b2cc89de.mp3str"
+
+[deps]
+
+source_file="res://assets/preloaded_songs/acoustic.mp3"
+dest_files=[ "res://.import/acoustic.mp3-656903a1e9ea89bd75c9a876b2cc89de.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
