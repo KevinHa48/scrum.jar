@@ -176,10 +176,7 @@ scale = Vector2( 1e-05, 1e-05 )
 visible = false
 
 [connection signal="pressed" from="NinePatchRect/VBoxContainer/PlayBtn" to="." method="_on_PlayBtn_pressed"]
-<<<<<<< HEAD
-=======
 [connection signal="pressed" from="NinePatchRect/VBoxContainer/DestressBtn" to="." method="_on_DestressBtn_pressed"]
->>>>>>> 2a6f1bf (US15 Destress Mode & US31 Quit Game Button Implemented)
 [connection signal="pressed" from="NinePatchRect/VBoxContainer/MusicUploadBtn" to="." method="_on_MusicUploadBtn_pressed"]
 [connection signal="toggled" from="NinePatchRect/VBoxContainer/MusicUploadBtn" to="." method="_on_MusicUploadBtn_toggled"]
 [connection signal="pressed" from="NinePatchRect/VBoxContainer/OptsBtn" to="." method="_on_OptsBtn_pressed"]

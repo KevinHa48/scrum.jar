@@ -29,8 +29,6 @@ func _on_OptsBtn_pressed():
 	$NinePatchRect.visible = false
 	$OptionsMenuScreen.visible = true
 
-<<<<<<< HEAD
-=======
 func _on_PlayBtn_pressed():
 	global.play_origin = 'normal'
 	get_tree().change_scene("res://src/Spatial.tscn")
@@ -39,4 +37,3 @@ func _on_PlayBtn_pressed():
 func _on_DestressBtn_pressed():
 	global.play_origin = 'destress'
 	get_tree().change_scene("res://src/Spatial.tscn")
->>>>>>> 2a6f1bf (US15 Destress Mode & US31 Quit Game Button Implemented)
