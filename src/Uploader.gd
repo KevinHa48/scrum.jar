@@ -20,9 +20,32 @@ func _ready():
 func _on_BrowseBtn_pressed():
 	$NinePatchRect/UploadDlg.popup()
 
+func _on_AddGenreBtn_pressed():
+	var file = File.new()
+	if file.file_exists("savedsongs.csv"):
+		file.open("savedsongs.csv", File.READ_WRITE)
+		
+		var entry;
+		while !file.eof_reached():
+			entry = file.get_csv_line()
+			if entry[0] == filePath:
+				entry.append($NinePatchRect/VBoxContainer/GenreInput.text)
+				file.store_csv_line(entry)
+				break
+		
+		if entry[0] != filePath:
+			file.store_csv_line(
+				PoolStringArray(
+					[filePath, $NinePatchRect/VBoxContainer/GenreInput.text]))
+		
+			
+	else:
+		file.open("savedsongs.csv", File.WRITE_READ)
+	while !file.eof_reached():
+		file.get_csv_line()
 
 func _on_UploadDlg_file_selected(path):
-	$NinePatchRect/VBoxContainer/LineEdit.text = path
+	$NinePatchRect/VBoxContainer/FilePathInput.text = path
 	filePath = path
 
 

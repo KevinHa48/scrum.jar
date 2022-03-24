@@ -42,8 +42,8 @@ window_title = "Open a File"
 resizable = true
 mode = 0
 access = 2
-current_dir = "/home/ty/src/scrum.jar"
-current_path = "/home/ty/src/scrum.jar/"
+current_dir = "/Users/lkpow/Documents/School Assignments/CS555/scrum.jar"
+current_path = "/Users/lkpow/Documents/School Assignments/CS555/scrum.jar/"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect"]
 anchor_right = 1.0
@@ -64,7 +64,7 @@ margin_right = 422.0
 margin_bottom = 32.0
 text = "File Path:"
 
-[node name="LineEdit" type="LineEdit" parent="NinePatchRect/VBoxContainer"]
+[node name="FilePathInput" type="LineEdit" parent="NinePatchRect/VBoxContainer"]
 margin_top = 36.0
 margin_right = 422.0
 margin_bottom = 60.0
@@ -113,6 +113,40 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
+[node name="Add Genre" type="Label" parent="NinePatchRect/VBoxContainer"]
+margin_top = 93.0
+margin_right = 422.0
+margin_bottom = 107.0
+text = "Add Genre:"
+
+[node name="GenreInput" type="LineEdit" parent="NinePatchRect/VBoxContainer"]
+margin_top = 111.0
+margin_right = 422.0
+margin_bottom = 135.0
+
+[node name="AddGenreBtn" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
+margin_top = 139.0
+margin_right = 422.0
+margin_bottom = 164.0
+rect_min_size = Vector2( 30, 25 )
+size_flags_horizontal = 3
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 1 )
+texture_disabled = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AddGenreLbl" type="Label" parent="NinePatchRect/VBoxContainer/AddGenreBtn"]
+margin_left = 15.0
+margin_top = 6.0
+margin_right = 65.0
+margin_bottom = 20.0
+text = "Confirm"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="Node2D" type="Node2D" parent="AudioStreamPlayer"]
@@ -120,6 +154,7 @@ position = Vector2( 962, 537 )
 script = ExtResource( 5 )
 
 [connection signal="file_selected" from="NinePatchRect/UploadDlg" to="." method="_on_UploadDlg_file_selected"]
-[connection signal="text_changed" from="NinePatchRect/VBoxContainer/LineEdit" to="." method="_on_LineEdit_text_changed"]
+[connection signal="text_changed" from="NinePatchRect/VBoxContainer/FilePathInput" to="." method="_on_LineEdit_text_changed"]
 [connection signal="pressed" from="NinePatchRect/VBoxContainer/BrowseBtn" to="." method="_on_BrowseBtn_pressed"]
 [connection signal="pressed" from="NinePatchRect/VBoxContainer/BrowseBtn/BrowseLbl/ConfirmBtn" to="." method="_on_ConfirmBtn_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/AddGenreBtn" to="." method="_on_AddGenreBtn_pressed"]

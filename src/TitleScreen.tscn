@@ -50,7 +50,8 @@ margin_top = 38.0
 margin_right = 426.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 79, 42 )
-text = "[TEMP TITLE]"
+text = "Music Visualizer Game
+"
 align = 1
 
 [node name="PlayBtn" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
