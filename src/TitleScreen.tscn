@@ -46,18 +46,18 @@ rect_pivot_offset = Vector2( -405, -147 )
 alignment = 1
 
 [node name="TitleLbl" type="Label" parent="NinePatchRect/VBoxContainer"]
-margin_top = 38.0
+margin_top = 23.0
 margin_right = 426.0
-margin_bottom = 80.0
+margin_bottom = 65.0
 rect_min_size = Vector2( 79, 42 )
 text = "Music Visualizer Game
 "
 align = 1
 
 [node name="PlayBtn" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
-margin_top = 84.0
+margin_top = 69.0
 margin_right = 426.0
-margin_bottom = 109.0
+margin_bottom = 94.0
 rect_min_size = Vector2( 80, 25 )
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 2 )
@@ -76,10 +76,32 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="MusicUploadBtn" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
-margin_top = 113.0
+[node name="DestressBtn" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
+margin_top = 98.0
 margin_right = 426.0
-margin_bottom = 138.0
+margin_bottom = 123.0
+rect_min_size = Vector2( 80, 25 )
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 2 )
+texture_disabled = ExtResource( 2 )
+expand = true
+stretch_mode = 3
+
+[node name="DestressLbl" type="Label" parent="NinePatchRect/VBoxContainer/DestressBtn"]
+anchor_right = 1.0
+anchor_bottom = 0.84
+margin_bottom = 4.0
+text = "Destress"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="MusicUploadBtn" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
+margin_top = 127.0
+margin_right = 426.0
+margin_bottom = 152.0
 rect_min_size = Vector2( 80, 25 )
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 2 )
@@ -102,9 +124,9 @@ __meta__ = {
 }
 
 [node name="OptsBtn" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
-margin_top = 142.0
+margin_top = 156.0
 margin_right = 426.0
-margin_bottom = 167.0
+margin_bottom = 181.0
 rect_min_size = Vector2( 80, 25 )
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 2 )
@@ -126,9 +148,9 @@ __meta__ = {
 }
 
 [node name="QuitBtn" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
-margin_top = 171.0
+margin_top = 185.0
 margin_right = 426.0
-margin_bottom = 196.0
+margin_bottom = 210.0
 rect_min_size = Vector2( 80, 25 )
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 2 )
@@ -154,6 +176,10 @@ scale = Vector2( 1e-05, 1e-05 )
 visible = false
 
 [connection signal="pressed" from="NinePatchRect/VBoxContainer/PlayBtn" to="." method="_on_PlayBtn_pressed"]
+<<<<<<< HEAD
+=======
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/DestressBtn" to="." method="_on_DestressBtn_pressed"]
+>>>>>>> 2a6f1bf (US15 Destress Mode & US31 Quit Game Button Implemented)
 [connection signal="pressed" from="NinePatchRect/VBoxContainer/MusicUploadBtn" to="." method="_on_MusicUploadBtn_pressed"]
 [connection signal="toggled" from="NinePatchRect/VBoxContainer/MusicUploadBtn" to="." method="_on_MusicUploadBtn_toggled"]
 [connection signal="pressed" from="NinePatchRect/VBoxContainer/OptsBtn" to="." method="_on_OptsBtn_pressed"]
