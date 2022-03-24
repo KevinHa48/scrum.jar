@@ -41,3 +41,11 @@ func _on_screenmode_options_item_selected(index):
 		OS.window_fullscreen = false
 		OS.window_borderless = true
 		
+
+
+func _on_VolumeSlider_value_changed(value):
+	pass # Replace with function body.
+
+
+func _on_value_changed(value):
+	pass # Replace with function body.

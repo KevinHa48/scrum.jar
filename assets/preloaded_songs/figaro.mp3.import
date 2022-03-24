@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/figaro.mp3-898f084b11f46ee1150f855c80268fa4.mp3str"
+
+[deps]
+
+source_file="res://assets/preloaded_songs/figaro.mp3"
+dest_files=[ "res://.import/figaro.mp3-898f084b11f46ee1150f855c80268fa4.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

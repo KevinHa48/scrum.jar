@@ -12,6 +12,8 @@ func _ready():
 	pass # Replace with function body.
 
 func calcColors():
+	var color_change_rate = 0.005
+	
 	if(r >= 1.0): rup = false;
 	elif(r <= 0.5): rup = true;
 	if(g >= 1.0): gup = false;
@@ -22,12 +24,15 @@ func calcColors():
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 	
-	if(rup): r = r + rng.randf_range(0.0000, 0.005)
-	else: r = r - rng.randf_range(0.0000, 0.005)
-	if(gup): g = g + rng.randf_range(0.0000, 0.005)
-	else: g = g - rng.randf_range(0.0000, 0.005)
-	if(bup): b = b + rng.randf_range(0.0000, 0.005)
-	else: b = b - rng.randf_range(0.0000, 0.005)
+	if global.play_origin != 'normal':
+		color_change_rate = 0.0025
+	
+	if(rup): r = r + rng.randf_range(0.0000, color_change_rate)
+	else: r = r - rng.randf_range(0.0000, color_change_rate)
+	if(gup): g = g + rng.randf_range(0.0000, color_change_rate)
+	else: g = g - rng.randf_range(0.0000, color_change_rate)
+	if(bup): b = b + rng.randf_range(0.0000, color_change_rate)
+	else: b = b - rng.randf_range(0.0000, color_change_rate)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):	
