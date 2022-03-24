@@ -1,7 +1,9 @@
-extends Gradient
-var r = 0.0; var rup = true;
-var g = 0.0; var gup = true;
-var b = 0.0; var bup = true;
+extends WorldEnvironment
+
+var d = 0.0; var dup = true;
+var r = 0.5; var rup = true;
+var g = 0.5; var gup = true;
+var b = 0.5; var bup = true;
 
 # Script should be added in the inspector mode and referenced.
 
@@ -9,33 +11,26 @@ var b = 0.0; var bup = true;
 func _ready():
 	pass # Replace with function body.
 
-func calcColors(delta):
+func calcColors():
 	if(r >= 1.0): rup = false;
-	elif(r <= 0.0): rup = true;
+	elif(r <= 0.5): rup = true;
 	if(g >= 1.0): gup = false;
-	elif(g <= 0.0): gup = true;
+	elif(g <= 0.5): gup = true;
 	if(b >= 1.0): bup = false;
-	elif(b <= 0.0): bup = true;
+	elif(b <= 0.5): bup = true;
 	
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 	
-	if(rup): r = r + delta + rng.randf_range(0, 0.05)
-	else: r = r - delta - rng.randf_range(0, 0.05)
-	if(gup): g = g + delta + rng.randf_range(0, 0.05)
-	else: g = g - delta - rng.randf_range(0, 0.05)
-	if(bup): b = b + delta + rng.randf_range(0, 0.05)
-	else: b = b - delta - rng.randf_range(0, 0.05)
+	if(rup): r = r + rng.randf_range(0.0000, 0.005)
+	else: r = r - rng.randf_range(0.0000, 0.005)
+	if(gup): g = g + rng.randf_range(0.0000, 0.005)
+	else: g = g - rng.randf_range(0.0000, 0.005)
+	if(bup): b = b + rng.randf_range(0.0000, 0.005)
+	else: b = b - rng.randf_range(0.0000, 0.005)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):	
-	calcColors(delta)
-	# Incorrect point change here..
-	var gradient1 = self
-	gradient1.set_color(1, Color(r,g,b,1))
-	#$MeshInstance.material_override = material	
-	print(self.get_colors())
-	#self.set_gradient(gradient1)
-	self.set_color(1, Color(r,g,b,1))
-	print(self.get_colors())
-	pass
+	calcColors()
+	self.environment.background_color = Color(r,g,b,1)
+		
