@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/ButtonPressedTemp.jpg" type="Texture" id=1]
 [ext_resource path="res://assets/ButtonUnpressedTemp.jpg" type="Texture" id=2]
 [ext_resource path="res://assets/ScreenBackgroundTextTemp.jpg" type="Texture" id=3]
 [ext_resource path="res://src/Uploader.gd" type="Script" id=4]
+[ext_resource path="res://src/visualizer.gd" type="Script" id=5]
 
 [sub_resource type="Theme" id=1]
 
@@ -41,16 +42,16 @@ window_title = "Open a File"
 resizable = true
 mode = 0
 access = 2
-current_dir = "/Users/lkpow/Documents/School Assignments/CS555/scrum.jar"
-current_path = "/Users/lkpow/Documents/School Assignments/CS555/scrum.jar/"
+current_dir = "/home/ty/src/scrum.jar"
+current_path = "/home/ty/src/scrum.jar/"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 45.0
-margin_top = 45.0
-margin_right = -45.0
-margin_bottom = -45.0
+margin_left = 47.0
+margin_top = 48.0
+margin_right = -43.0
+margin_bottom = -42.0
 
 [node name="TitleLbl" type="Label" parent="NinePatchRect/VBoxContainer"]
 margin_right = 422.0
@@ -112,7 +113,11 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="AudioTester" type="AudioStreamPlayer2D" parent="NinePatchRect"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Node2D" type="Node2D" parent="AudioStreamPlayer"]
+position = Vector2( 962, 537 )
+script = ExtResource( 5 )
 
 [connection signal="file_selected" from="NinePatchRect/UploadDlg" to="." method="_on_UploadDlg_file_selected"]
 [connection signal="text_changed" from="NinePatchRect/VBoxContainer/LineEdit" to="." method="_on_LineEdit_text_changed"]

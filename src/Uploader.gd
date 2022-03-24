@@ -40,9 +40,9 @@ func _on_ConfirmBtn_pressed():
 			audio.set_data(file.get_buffer(file.get_len()))
 			# Add file to musicDir
 			addToMusicDir(file)
-			$NinePatchRect/AudioTester.set_stream(audio)
-			$NinePatchRect/AudioTester.play()
-			hide()
+			$AudioStreamPlayer.set_stream(audio)
+			$AudioStreamPlayer.play()
+			# hide()
 		else:
 			$NinePatchRect/VBoxContainer/LineEdit.text = "Given file cannot be played."
 
@@ -58,9 +58,7 @@ func determineFileType():
 
 # Attempting to add file to User data.
 func addToMusicDir(file):
-	#print("In this function")
 	var dir = Directory.new()
 	dir.make_dir(musicDir)
 	if dir.open(musicDir):
-		#print("Made it here!")
 		dir.copy(file, musicDir)
