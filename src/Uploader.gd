@@ -39,7 +39,7 @@ func _on_ConfirmBtn_pressed():
 		if audio:
 			audio.set_data(file.get_buffer(file.get_len()))
 			# Add file to musicDir
-			addToMusicDir(filePath)
+			addToMusicDir()
 			$AudioStreamPlayer.set_stream(audio)
 			$AudioStreamPlayer.play()
 			# hide()
@@ -57,7 +57,7 @@ func determineFileType():
 
 
 # Attempting to add file to User data.
-func addToMusicDir(filePath):
+func addToMusicDir():
 	var dir = Directory.new()
 	dir.make_dir(musicDir)
 	dir.copy(filePath, musicDir + filePath.get_file())
