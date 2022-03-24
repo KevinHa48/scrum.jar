@@ -147,6 +147,7 @@ __meta__ = {
 }
 
 [node name="AudioPlayer" type="AudioStreamPlayer2D" parent="NinePatchRect"]
+scale = Vector2( 1e-05, 1e-05 )
 
 [node name="OptionsMenuScreen" parent="." instance=ExtResource( 6 )]
 visible = false

@@ -1,7 +1,7 @@
 extends Control
 
 var filePath = ""
-var musicDir = "user://"
+var musicDir = "user://music/"
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -39,7 +39,7 @@ func _on_ConfirmBtn_pressed():
 		if audio:
 			audio.set_data(file.get_buffer(file.get_len()))
 			# Add file to musicDir
-			addToMusicDir(file)
+			addToMusicDir(filePath)
 			$AudioStreamPlayer.set_stream(audio)
 			$AudioStreamPlayer.play()
 			# hide()
@@ -57,8 +57,7 @@ func determineFileType():
 
 
 # Attempting to add file to User data.
-func addToMusicDir(file):
+func addToMusicDir(filePath):
 	var dir = Directory.new()
 	dir.make_dir(musicDir)
-	if dir.open(musicDir):
-		dir.copy(file, musicDir)
+	dir.copy(filePath, musicDir + filePath.get_file())
