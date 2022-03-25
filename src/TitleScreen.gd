@@ -37,3 +37,7 @@ func _on_PlayBtn_pressed():
 func _on_DestressBtn_pressed():
 	global.play_origin = 'destress'
 	get_tree().change_scene("res://src/Spatial.tscn")
+
+
+func _onLineEdittextentered(textentered):
+	global.playername = textentered

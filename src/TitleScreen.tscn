@@ -46,18 +46,17 @@ rect_pivot_offset = Vector2( -405, -147 )
 alignment = 1
 
 [node name="TitleLbl" type="Label" parent="NinePatchRect/VBoxContainer"]
-margin_top = 23.0
 margin_right = 426.0
-margin_bottom = 65.0
+margin_bottom = 42.0
 rect_min_size = Vector2( 79, 42 )
 text = "Music Visualizer Game
 "
 align = 1
 
 [node name="PlayBtn" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
-margin_top = 69.0
+margin_top = 46.0
 margin_right = 426.0
-margin_bottom = 94.0
+margin_bottom = 71.0
 rect_min_size = Vector2( 80, 25 )
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 2 )
@@ -77,9 +76,9 @@ __meta__ = {
 }
 
 [node name="DestressBtn" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
-margin_top = 98.0
+margin_top = 75.0
 margin_right = 426.0
-margin_bottom = 123.0
+margin_bottom = 100.0
 rect_min_size = Vector2( 80, 25 )
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 2 )
@@ -99,9 +98,9 @@ __meta__ = {
 }
 
 [node name="MusicUploadBtn" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
-margin_top = 127.0
+margin_top = 104.0
 margin_right = 426.0
-margin_bottom = 152.0
+margin_bottom = 129.0
 rect_min_size = Vector2( 80, 25 )
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 2 )
@@ -124,9 +123,9 @@ __meta__ = {
 }
 
 [node name="OptsBtn" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
-margin_top = 156.0
+margin_top = 133.0
 margin_right = 426.0
-margin_bottom = 181.0
+margin_bottom = 158.0
 rect_min_size = Vector2( 80, 25 )
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 2 )
@@ -148,9 +147,9 @@ __meta__ = {
 }
 
 [node name="QuitBtn" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
-margin_top = 185.0
+margin_top = 162.0
 margin_right = 426.0
-margin_bottom = 210.0
+margin_bottom = 187.0
 rect_min_size = Vector2( 80, 25 )
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 2 )
@@ -169,6 +168,18 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer"]
+margin_top = 191.0
+margin_right = 426.0
+margin_bottom = 205.0
+text = "Enter Name:"
+align = 1
+
+[node name="LineEdit" type="LineEdit" parent="NinePatchRect/VBoxContainer"]
+margin_top = 209.0
+margin_right = 426.0
+margin_bottom = 233.0
+
 [node name="AudioPlayer" type="AudioStreamPlayer2D" parent="NinePatchRect"]
 scale = Vector2( 1e-05, 1e-05 )
 
@@ -181,3 +192,4 @@ visible = false
 [connection signal="toggled" from="NinePatchRect/VBoxContainer/MusicUploadBtn" to="." method="_on_MusicUploadBtn_toggled"]
 [connection signal="pressed" from="NinePatchRect/VBoxContainer/OptsBtn" to="." method="_on_OptsBtn_pressed"]
 [connection signal="pressed" from="NinePatchRect/VBoxContainer/QuitBtn" to="." method="_on_QuitBtn_pressed"]
+[connection signal="text_entered" from="NinePatchRect/VBoxContainer/LineEdit" to="." method="_onLineEdittextentered"]

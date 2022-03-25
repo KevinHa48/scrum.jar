@@ -4,3 +4,18 @@ extends Node
 
 # Checking for normal / destress mode.
 var play_origin = 'normal'
+
+var playername
+
+func _onLineEdittextentered(newtext):
+
+	playername = newtext
+	global.playername = newtext
+	print(playername)
+	
+
+func onButtonpressed():
+
+	#gettree().changescene("res://Scenes/TestWorld.tscn")
+
+	print("Welcome " + str(global.playername))
