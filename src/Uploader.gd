@@ -113,7 +113,7 @@ func _on_ConfirmBtn_pressed():
 			displayGenres()
 			hide()
 		else:
-			$NinePatchRect/VBoxContainer/LineEdit.text = "Given file cannot be played."
+			$NinePatchRect/VBoxContainer/Genres.text = "Given file cannot be played."
 
 
 func determineFileType():
