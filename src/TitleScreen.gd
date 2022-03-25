@@ -41,3 +41,4 @@ func _on_DestressBtn_pressed():
 
 func _onLineEdittextentered(textentered):
 	global.playername = textentered
+	print("Welcome " + str(global.playername))
