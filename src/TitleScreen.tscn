@@ -182,8 +182,6 @@ margin_right = 426.0
 margin_bottom = 233.0
 
 [node name="Playername" type="Label" parent="NinePatchRect/VBoxContainer"]
-anchor_top = -0.848606
-anchor_bottom = -0.848606
 margin_top = 237.0
 margin_right = 426.0
 margin_bottom = 251.0

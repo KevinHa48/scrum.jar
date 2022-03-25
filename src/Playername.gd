@@ -9,7 +9,7 @@ extends Label
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#self.text = global.playername
-	self.text = global.playername
+	self.text = "Default"
 	pass # Replace with function body.
 
 
