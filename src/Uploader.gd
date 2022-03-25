@@ -18,6 +18,7 @@ func _ready():
 
 
 func _on_BrowseBtn_pressed():
+	$NinePatchRect/UploadDlg.access = 2
 	$NinePatchRect/UploadDlg.popup()
 
 
