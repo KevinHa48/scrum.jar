@@ -23,6 +23,7 @@ func _process(delta):
 		if(newCube != null):
 			numCubes += 1
 			newCube.translate(randomSpawn())
+			newCube.set_gravity_scale(0.1)
 			get_parent().add_child(newCube)
 			
 			
@@ -30,4 +31,4 @@ func randomSpawn():
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 	
-	return Vector3(rng.randf_range(-100, 100), rng.randf_range(-100, 100), rng.randf_range(-100, 100))
+	return Vector3(rng.randf_range(-100, 100), 30, rng.randf_range(-100, 100))
