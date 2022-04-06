@@ -110,7 +110,7 @@ func _on_ConfirmBtn_pressed():
 			addToMusicDir()
 			$AudioStreamPlayer.set_stream(audio)
 			$AudioStreamPlayer.play()
-			
+			$AudioStreamPlayer/VisualizerCircle.visible = true;
 			displayGenres()
 			hide()
 		else:

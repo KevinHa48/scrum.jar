@@ -185,8 +185,8 @@ __meta__ = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
-[node name="Node2D" type="Node2D" parent="AudioStreamPlayer"]
-position = Vector2( 962, 537 )
+[node name="VisualizerCircle" type="Node2D" parent="AudioStreamPlayer"]
+visible = false
 script = ExtResource( 5 )
 
 [connection signal="file_selected" from="NinePatchRect/UploadDlg" to="." method="_on_UploadDlg_file_selected"]

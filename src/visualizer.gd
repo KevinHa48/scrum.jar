@@ -51,6 +51,7 @@ func _process(delta):
 		histogram[i] = lerp(histogram[i], mag, accel * delta)
 	
 	update()
+	self.position = get_viewport_rect().size / 2
 
 func _draw():
 	# Linear Visualiser
