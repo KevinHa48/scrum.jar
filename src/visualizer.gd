@@ -22,7 +22,7 @@ func _ready():
 	max_db += get_parent().volume_db
 	min_db += get_parent().volume_db
 	
-	for i in range(definition):
+	for _i in range(definition):
 		histogram.append(0)
 
 func _process(delta):

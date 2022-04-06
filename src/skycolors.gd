@@ -35,7 +35,7 @@ func calcColors():
 	else: b = b - rng.randf_range(0.0000, color_change_rate)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):	
+func _process(_delta):
 	calcColors()
 	self.environment.background_color = Color(r,g,b,1)
 		
