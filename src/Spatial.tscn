@@ -78,6 +78,8 @@ material/0 = null
 [node name="Player" type="KinematicBody" parent="."]
 script = ExtResource( 7 )
 
+[node name="Weapon" type="Spatial" parent="Player"]
+
 [node name="CollisionShape" type="CollisionShape" parent="Player"]
 transform = Transform( 1, 0, 0, 0, 0.00123914, 0.999999, 0, -0.999999, 0.00123914, -0.0882406, 1.28423, -0.656132 )
 shape = SubResource( 12 )
