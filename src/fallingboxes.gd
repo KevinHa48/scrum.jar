@@ -26,6 +26,7 @@ func _process(_delta):
 	#		cube.queue_free()
 	if len(cubes) <= maxCubes:
 		var newCube = fallingCube.duplicate()
+		newCube.visible = true
 		if newCube:
 			newCube.translate(randomSpawn())
 			newCube.set_gravity_scale(0.1)
@@ -43,16 +44,10 @@ func _process(_delta):
 	deleteGroundCubes()
 
 func deleteGroundCubes():
-	var toBeRemovedCubes = []
 	for cube in cubes:
-		if cube.translation.y <= 2:
-			toBeRemovedCubes.append(cube)
-	
-	for i in toBeRemovedCubes:
-		var cube_to_delete = cubes[0]
-		cubes.remove(0)
-		cube_to_delete.queue_free()
-
+		if(is_instance_valid(cube) && cube.translation.y <= 2):
+			cubes.remove(cubes.find(cube))
+			cube.queue_free()
 
 func randomSpawn():
 	var rng = RandomNumberGenerator.new()
