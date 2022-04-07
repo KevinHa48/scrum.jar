@@ -16,14 +16,13 @@ var max_db = 0
 var min_db = -40
 
 var accel = 20
-var histogram = []
 
 func _ready():
 	max_db += get_parent().volume_db
 	min_db += get_parent().volume_db
 	
 	for _i in range(definition):
-		histogram.append(0)
+		global.histogram.append(0)
 
 func _process(delta):
 	var freq = min_freq
@@ -48,7 +47,7 @@ func _process(delta):
 		mag += 0.3 * (freq - min_freq) / (max_freq - min_freq)
 		mag = clamp(mag, 0.05, 1)
 		
-		histogram[i] = lerp(histogram[i], mag, accel * delta)
+		global.histogram[i] = lerp(global.histogram[i], mag, accel * delta)
 	
 	update()
 	self.position = get_viewport_rect().size / 2
@@ -62,7 +61,7 @@ func _draw():
 		draw_line(Vector2(0, -h), Vector2(w, -h), Color.crimson, 2.0, true)
 		
 		for i in range(definition):
-			draw_line(draw_pos, draw_pos + Vector2(0, -histogram[i] * h), Color.crimson, 4.0, true)
+			draw_line(draw_pos, draw_pos + Vector2(0, -global.histogram[i] * h), Color.crimson, 4.0, true)
 			draw_pos.x += w_interval
 	# Radial Visualiser
 	elif visualizer == "circle":
@@ -73,6 +72,6 @@ func _draw():
 		for i in range(definition):
 			var normal = Vector2(0, -1).rotated(angle)
 			var start_pos = normal * r
-			var end_pos = normal * (r + histogram[i] * L)
+			var end_pos = normal * (r + global.histogram[i] * L)
 			draw_line(start_pos, end_pos, Color.dodgerblue, 4.0, true)
 			angle += angle_interval
