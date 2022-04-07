@@ -19,6 +19,15 @@ func _input(event):
 		var movement = event.relative
 		self.rotation.x -= deg2rad(movement.y * sens)
 		self.rotation.y -= deg2rad(movement.x * sens)
+	elif event is InputEventJoypadMotion and global.mouseactive:
+		if Input.is_action_pressed("ui_look_left"):
+			pass
+		if Input.is_action_pressed("ui_look_right"):
+			pass
+		if Input.is_action_pressed("ui_look_up"):
+			pass
+		if Input.is_action_pressed("ui_look_leftdown"):
+			pass
 
 func _toggleActive():
 	global.mouseactive = !global.mouseactive
