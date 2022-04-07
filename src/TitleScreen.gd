@@ -30,6 +30,7 @@ func _on_OptsBtn_pressed():
 	$OptionsMenuScreen.visible = true
 
 func _on_PlayBtn_pressed():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	global.play_origin = 'normal'
 	get_tree().change_scene("res://src/Spatial.tscn")
 

@@ -9,7 +9,7 @@ var musicDir = "user://music/"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -114,6 +114,7 @@ func _on_ConfirmBtn_pressed():
 			displayGenres()
 			hide()
 			Input.set_mouse_mode(1)
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		else:
 			$NinePatchRect/VBoxContainer/Genres.text = "Given file cannot be played."
 
