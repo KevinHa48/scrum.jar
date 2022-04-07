@@ -9,6 +9,8 @@ var playername = "Player"
 
 var player_points = 0
 
+var histogram = []
+
 func _onLineEdittextentered(newtext):
 	playername = newtext
 	global.playername = newtext

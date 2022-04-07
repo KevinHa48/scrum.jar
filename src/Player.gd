@@ -38,15 +38,14 @@ func _process(_delta):
 	_spring_arm.translation = translation
 	if Input.is_action_just_pressed("fire"):
 		if _indicator.is_colliding():
-			var b = bullet.instance()
-			weapon.add_child(b)
-			b.look_at(_indicator.get_collision_point(), Vector3.UP)
-			b.shoot = true
-		#if _indicator.is_colliding():
-		#	var block = _indicator.get_collider()
-		#	if block.is_in_group("Falling Box"):
-		#		block.queue_free()
-		#		global.player_points += 1
-		#		print(global.player_points)
+		#	var b = bullet.instance()
+		#	weapon.add_child(b)
+		#	b.look_at(_indicator.get_collision_point(), Vector3.UP)
+		#	b.shoot = true
+			var block = _indicator.get_collider()
+			if block.is_in_group("Falling Box"):
+				block.queue_free()
+				global.player_points += 1
+				print(global.player_points)
 	
 	
