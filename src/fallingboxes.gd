@@ -34,11 +34,25 @@ func _process(_delta):
 			# newCube.connect("body_entered", self, "on_newCube_body_entered")
 			add_child(newCube)
 			cubes.append(newCube)
-	else:
+	#else:
+		#var cube_to_delete = cubes[0]
+		#print(cube_to_delete.translation.y)
+		#cubes.remove(0)
+		#cube_to_delete.queue_free()
+	
+	deleteGroundCubes()
+
+func deleteGroundCubes():
+	var toBeRemovedCubes = []
+	for i in len(cubes):
+		if(cubes[i].translation.y <= 2):
+			toBeRemovedCubes.append(cubes[i])
+	
+	for i in toBeRemovedCubes:
 		var cube_to_delete = cubes[0]
 		cubes.remove(0)
 		cube_to_delete.queue_free()
-
+			
 
 func randomSpawn():
 	var rng = RandomNumberGenerator.new()
