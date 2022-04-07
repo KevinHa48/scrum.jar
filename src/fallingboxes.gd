@@ -20,10 +20,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	# for cube in cubes:
-	# 	if cube.is_colliding():
-	#		cubes.remove(cubes.find(cube))
-	#		cube.queue_free()
+	var sum = 0
+	for n in global.histogram:
+		sum += n
+	if sum < 5:
+		return
 	if len(cubes) <= maxCubes:
 		var newCube = fallingCube.duplicate()
 		newCube.visible = true
@@ -35,17 +36,11 @@ func _process(_delta):
 			# newCube.connect("body_entered", self, "on_newCube_body_entered")
 			add_child(newCube)
 			cubes.append(newCube)
-	#else:
-		#var cube_to_delete = cubes[0]
-		#print(cube_to_delete.translation.y)
-		#cubes.remove(0)
-		#cube_to_delete.queue_free()
-	
 	deleteGroundCubes()
 
 func deleteGroundCubes():
 	for cube in cubes:
-		if(is_instance_valid(cube) && cube.translation.y <= 2):
+		if is_instance_valid(cube) && cube.translation.y <= 2:
 			cubes.remove(cubes.find(cube))
 			cube.queue_free()
 
