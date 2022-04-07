@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://src/camera.gd" type="Script" id=1]
 [ext_resource path="res://src/skycolors.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://src/fallingboxes.gd" type="Script" id=5]
 [ext_resource path="res://addons/godot-openvr/scenes/ovr_first_person.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/Player.gd" type="Script" id=7]
+[ext_resource path="res://src/PauseMenu.tscn" type="PackedScene" id=8]
 
 [sub_resource type="SpatialMaterial" id=1]
 
@@ -35,6 +36,9 @@ fog_color = Color( 0.0117647, 0.490196, 0.972549, 1 )
 
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 5 )
+
+[node name="PauseMenu" parent="." instance=ExtResource( 8 )]
+visible = false
 
 [node name="FallingBox" type="RigidBody" parent="." groups=["Falling Box"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.33453, 32.682, -16.6146 )

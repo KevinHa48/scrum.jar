@@ -4,14 +4,18 @@ var is_paused = false setget set_is_paused
 
 func _unhandled_input(event):
 	if event.is_action_pressed('pause'):
-		self.is_paused = !is_paused
+		set_is_paused(self.is_paused)
 
 func set_is_paused(value):
-	is_paused = value
-	get_tree().paused = is_paused
+	is_paused = !is_paused;
 	visible = is_paused
-	
-
+	global.visualizer = !is_paused
+	if is_paused:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		global.mouseactive = false
+	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		global.mouseactive = true
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -26,9 +30,8 @@ func _ready():
 #func _process(delta):
 #	pass
 
-
 func _on_ResumeBtn_pressed():
-	self.is_paused = false
+	set_is_paused(self.is_paused)
 
 
 func _on_QuitBtn_pressed():
