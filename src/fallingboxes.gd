@@ -44,9 +44,9 @@ func _process(_delta):
 
 func deleteGroundCubes():
 	var toBeRemovedCubes = []
-	for i in len(cubes):
-		if(cubes[i].translation.y <= 2):
-			toBeRemovedCubes.append(cubes[i])
+	for cube in cubes:
+		if(cube.translation.y <= 2):
+			toBeRemovedCubes.append(cube)
 	
 	for i in toBeRemovedCubes:
 		var cube_to_delete = cubes[0]
