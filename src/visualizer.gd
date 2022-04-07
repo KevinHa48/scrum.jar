@@ -25,6 +25,7 @@ func _ready():
 		global.histogram.append(0)
 
 func _process(delta):
+	visible = global.visualizer;
 	var freq = min_freq
 	var interval = (max_freq - min_freq) / definition
 	

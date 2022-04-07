@@ -13,6 +13,8 @@ var histogram = []
 
 var mouseactive = false;
 
+var visualizer = false;
+
 func _onLineEdittextentered(newtext):
 	playername = newtext
 	global.playername = newtext
