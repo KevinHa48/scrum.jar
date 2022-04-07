@@ -33,3 +33,7 @@ func _on_ResumeBtn_pressed():
 
 func _on_QuitBtn_pressed():
 	get_tree().quit()
+
+
+func _on_ResetBtn_pressed():
+	self.is_paused = false
