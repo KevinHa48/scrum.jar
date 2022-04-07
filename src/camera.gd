@@ -1,9 +1,12 @@
 extends Spatial
 
 export var sens := 0.1
+export var ctrlsens := 0.2
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+
+onready var refPoint = get_parent().global_transform.origin
 
 
 # Called when the node enters the scene tree for the first time.
@@ -21,13 +24,17 @@ func _input(event):
 		self.rotation.y -= deg2rad(movement.x * sens)
 	elif event is InputEventJoypadMotion and global.mouseactive:
 		if Input.is_action_pressed("ui_look_left"):
-			pass
+			print("Looking left")
+			self.rotation.y -= deg2rad(-1 * ctrlsens)
 		if Input.is_action_pressed("ui_look_right"):
-			pass
+			print("Looking right")
+			self.rotation.y -= deg2rad(1 * ctrlsens)
 		if Input.is_action_pressed("ui_look_up"):
-			pass
-		if Input.is_action_pressed("ui_look_leftdown"):
-			pass
+			print("Looking up")
+			self.rotation.x -= deg2rad(-1 * ctrlsens)
+		if Input.is_action_pressed("ui_look_down"):
+			print("Looking down")
+			self.rotation.x -= deg2rad(1 * ctrlsens)
 
 func _toggleActive():
 	global.mouseactive = !global.mouseactive
