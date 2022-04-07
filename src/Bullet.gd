@@ -28,4 +28,6 @@ func _on_Area_body_entered(body):
 		body.queue_free()
 		global.player_points += 1
 		print(global.player_points)
-	queue_free()
+		# queue_free()
+	# else:
+		# queue_free()

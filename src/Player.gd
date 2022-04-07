@@ -7,9 +7,10 @@ export var gravity := 50.0
 var _velocity := Vector3.ZERO
 var _snap_vector := Vector3.DOWN
 
+const hit_scan = true
+
 onready var _spring_arm: SpringArm = $SpringArm
 onready var bullet = preload("res://src/Bullet.tscn")
-onready var weapon = $Weapon
 onready var _indicator = $SpringArm/OVRFirstPerson/Indicator
 # Declare member variables here. Examples:
 # var a = 2
@@ -38,14 +39,14 @@ func _process(_delta):
 	_spring_arm.translation = translation
 	if Input.is_action_just_pressed("fire"):
 		if _indicator.is_colliding():
-		#	var b = bullet.instance()
-		#	weapon.add_child(b)
-		#	b.look_at(_indicator.get_collision_point(), Vector3.UP)
-		#	b.shoot = true
-			var block = _indicator.get_collider()
-			if block.is_in_group("Falling Box"):
-				block.queue_free()
-				global.player_points += 1
-				print(global.player_points)
-	
-	
+			if hit_scan:
+				var block = _indicator.get_collider()
+				if block.is_in_group("Falling Box"):
+					block.queue_free()
+					global.player_points += 1
+					print(global.player_points)
+			else:
+				var b = bullet.instance()
+				add_child(b)
+				b.look_at(_indicator.get_collision_point(), Vector3.UP)
+				b.shoot = true
