@@ -94,6 +94,8 @@ margin_bottom = 20.0
 size_flags_horizontal = 6
 text = "Back"
 
+[connection signal="item_selected" from="VBoxContainer/HBoxContainer/VBoxContainer/graphics_options" to="." method="_on_graphics_options_item_selected"]
 [connection signal="mouse_exited" from="VBoxContainer/HBoxContainer/VBoxContainer/VolumeSlider" to="." method="release_focus"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer/VBoxContainer/VolumeSlider" to="." method="_on_value_changed"]
 [connection signal="item_selected" from="VBoxContainer/HBoxContainer/VBoxContainer2/screenmode_options" to="." method="_on_screenmode_options_item_selected"]
+[connection signal="item_selected" from="VBoxContainer/HBoxContainer/VBoxContainer2/res_options" to="." method="_on_resolutions_options_item_selected"]

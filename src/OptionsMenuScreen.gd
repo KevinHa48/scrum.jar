@@ -8,6 +8,13 @@ func _ready():
 	_prepare_screenmodes()
 	_prepare_graphics()
 	_prepare_resolutions()
+	graphics.select(1)
+	get_viewport().set_shadow_atlas_size(2048)
+	get_viewport().set_msaa(get_viewport().MSAA_8X)
+	ProjectSettings.set_setting("rendering/quality/filters/anisotropic_filter_level", 8)
+	ProjectSettings.save()
+	resolutions.select(1)
+	OS.set_window_size(Vector2(1600, 900))
 	if(!OS.window_fullscreen):
 		screenmodes.select(1)
 	
@@ -22,9 +29,9 @@ func _prepare_graphics():
 	graphics.add_item("Low")
 	
 func _prepare_resolutions():
-	resolutions.add_item("example 1920x1080")
-	resolutions.add_item("example 1600x900")
-	resolutions.add_item("example 1024x768")
+	resolutions.add_item("1920x1080")
+	resolutions.add_item("1600x900")
+	resolutions.add_item("1024x768")
 
 
 func _on_screenmode_options_item_selected(index):
@@ -41,6 +48,32 @@ func _on_screenmode_options_item_selected(index):
 		OS.window_fullscreen = false
 		OS.window_borderless = true
 		
+func _on_resolutions_options_item_selected(index):
+	if(index == 0): #1920x1080
+		OS.set_window_size(Vector2(1920, 1080))
+	elif(index == 1): #1600x900
+		OS.set_window_size(Vector2(1600, 900))
+	else: #1024x768
+		OS.set_window_size(Vector2(1024, 768))
+	pass
+	
+func _on_graphics_options_item_selected(index):
+	if(index == 0): #high
+		get_viewport().set_shadow_atlas_size(8192)
+		get_viewport().set_msaa(get_viewport().MSAA_16X)
+		ProjectSettings.set_setting("rendering/quality/filters/anisotropic_filter_level", 16)
+		ProjectSettings.save()
+	elif(index == 1): #medium
+		get_viewport().set_shadow_atlas_size(2048)
+		get_viewport().set_msaa(get_viewport().MSAA_8X)
+		ProjectSettings.set_setting("rendering/quality/filters/anisotropic_filter_level", 8)
+		ProjectSettings.save()
+	else: #low
+		get_viewport().set_shadow_atlas_size(512)
+		get_viewport().set_msaa(get_viewport().MSAA_DISABLED)
+		ProjectSettings.set_setting("rendering/quality/filters/anisotropic_filter_level", 2)
+		ProjectSettings.save()
+	pass
 
 
 func _on_VolumeSlider_value_changed(value):
