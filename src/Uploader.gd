@@ -110,9 +110,10 @@ func _on_ConfirmBtn_pressed():
 			addToMusicDir()
 			$AudioStreamPlayer.set_stream(audio)
 			$AudioStreamPlayer.play()
-			
+			$AudioStreamPlayer/VisualizerCircle.visible = true;
 			displayGenres()
 			hide()
+			Input.set_mouse_mode(1)
 		else:
 			$NinePatchRect/VBoxContainer/Genres.text = "Given file cannot be played."
 
