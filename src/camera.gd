@@ -14,12 +14,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-var active = true
 func _input(event):
-	if event is InputEventMouseMotion and active:
+	if event is InputEventMouseMotion and global.mouseactive:
 		var movement = event.relative
 		self.rotation.x -= deg2rad(movement.y * sens)
 		self.rotation.y -= deg2rad(movement.x * sens)
 
 func _toggleActive():
-	active = !active
+	global.mouseactive = !global.mouseactive

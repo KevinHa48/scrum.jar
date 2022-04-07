@@ -11,6 +11,8 @@ var player_points = 0
 
 var histogram = []
 
+var mouseactive = false;
+
 func _onLineEdittextentered(newtext):
 	playername = newtext
 	global.playername = newtext
