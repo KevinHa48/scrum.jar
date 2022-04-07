@@ -8,6 +8,7 @@ var _velocity := Vector3.ZERO
 var _snap_vector := Vector3.DOWN
 
 onready var _spring_arm: SpringArm = $SpringArm
+onready var bullet = preload("res://src/Bullet.tscn")
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -15,7 +16,7 @@ onready var _spring_arm: SpringArm = $SpringArm
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 	
 func _physics_process(delta):
 	var move_direction := Vector3.ZERO
@@ -31,5 +32,10 @@ func _physics_process(delta):
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
+	if Input.is_mouse_button_pressed(BUTTON_LEFT):
+		var b = bullet.duplicate()
+		if b:
+			add_child(b)
+			b.velocity = -b.transform.basis.z * b.muzzle_velocity
 	_spring_arm.translation = translation

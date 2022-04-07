@@ -63,7 +63,7 @@ func _on_AddGenreBtn_pressed():
 		
 		var dir = Directory.new()
 		dir.remove("user://savedsongs.txt")
-		dir.rename("user://temp.txt", "user://savedsongs.txt")		
+		dir.rename("user://temp.txt", "user://savedsongs.txt")
 	else:
 		file.open("user://savedsongs.txt", File.WRITE_READ)
 		var dir = Directory.new()
@@ -110,7 +110,7 @@ func _on_ConfirmBtn_pressed():
 			addToMusicDir()
 			$AudioStreamPlayer.set_stream(audio)
 			$AudioStreamPlayer.play()
-			$AudioStreamPlayer/VisualizerCircle.visible = true;
+			$AudioStreamPlayer/VisualizerCircle.visible = true
 			displayGenres()
 			hide()
 			Input.set_mouse_mode(1)

@@ -45,14 +45,14 @@ func _process(_delta):
 func deleteGroundCubes():
 	var toBeRemovedCubes = []
 	for cube in cubes:
-		if(cube.translation.y <= 2):
+		if cube.translation.y <= 2:
 			toBeRemovedCubes.append(cube)
 	
 	for i in toBeRemovedCubes:
 		var cube_to_delete = cubes[0]
 		cubes.remove(0)
 		cube_to_delete.queue_free()
-			
+
 
 func randomSpawn():
 	var rng = RandomNumberGenerator.new()

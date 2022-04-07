@@ -19,8 +19,8 @@ var active = true
 func _input(event):
 	if event is InputEventMouseMotion and active:
 		var movement = event.relative
-		self.rotation.x += -deg2rad(movement.y * sens)
-		self.rotation.y += -deg2rad(movement.x * sens)
+		self.rotation.x -= deg2rad(movement.y * sens)
+		self.rotation.y -= deg2rad(movement.x * sens)
 
 func _toggleActive():
 	active = !active
