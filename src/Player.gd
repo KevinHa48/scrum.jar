@@ -8,6 +8,7 @@ var _velocity := Vector3.ZERO
 var _snap_vector := Vector3.DOWN
 
 onready var _spring_arm: SpringArm = $SpringArm
+onready var _indicator = $SpringArm/OVRFirstPerson/Indicator
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -33,3 +34,15 @@ func _physics_process(delta):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	_spring_arm.translation = translation
+	
+	if Input.is_action_just_pressed("fire"):
+		print("hit !1")
+		if _indicator.is_colliding():
+			var block = _indicator.get_collider()
+			print(block.get_class())
+			#print(block.group)
+			if block.is_in_group("Falling Box"):
+				block.queue_free()
+				print("hit !3")
+	
+	

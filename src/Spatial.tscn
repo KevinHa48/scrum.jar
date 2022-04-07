@@ -36,8 +36,9 @@ fog_color = Color( 0.0117647, 0.490196, 0.972549, 1 )
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 5 )
 
-[node name="FallingBox" type="RigidBody" parent="."]
+[node name="FallingBox" type="RigidBody" parent="." groups=["Falling Box"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.33453, 32.682, -16.6146 )
+visible = false
 script = ExtResource( 3 )
 
 [node name="MeshInstance" type="MeshInstance" parent="FallingBox"]
@@ -65,6 +66,7 @@ shape = SubResource( 3 )
 [node name="MusicUploadScreen" parent="." instance=ExtResource( 4 )]
 
 [node name="Floor" type="StaticBody" parent="."]
+visible = false
 
 [node name="CollisionShape" type="CollisionShape" parent="Floor"]
 shape = SubResource( 11 )
@@ -81,7 +83,6 @@ transform = Transform( 1, 0, 0, 0, 0.00123914, 0.999999, 0, -0.999999, 0.0012391
 shape = SubResource( 12 )
 
 [node name="SpringArm" type="SpringArm" parent="Player"]
-spring_length = 7.0
 margin = 0.2
 script = ExtResource( 1 )
 
@@ -91,3 +92,8 @@ script = null
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Player/SpringArm/OVRFirstPerson"]
 environment = SubResource( 7 )
 script = ExtResource( 2 )
+
+[node name="Indicator" type="RayCast" parent="Player/SpringArm/OVRFirstPerson"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.80355, 0 )
+enabled = true
+cast_to = Vector3( 0, 0, -1000 )
