@@ -5,7 +5,6 @@ onready var spectrum = AudioServer.get_bus_effect_instance(0, 0)
 
 var visualizer = "circle"
 
-var definition = 60
 var min_freq = 20
 var max_freq = 20000
 
@@ -21,15 +20,14 @@ func _ready():
 	max_db += get_parent().volume_db
 	min_db += get_parent().volume_db
 	
-	for _i in range(definition):
+	for _i in range(global.definition):
 		global.histogram.append(0)
 
 func _process(delta):
 	var freq = min_freq
-	var interval = (max_freq - min_freq) / definition
+	var interval = (max_freq - min_freq) / global.definition
 	
-	for i in range(definition):
-		
+	for i in range(global.definition):
 		var freqrange_low = float(freq - min_freq) / float(max_freq - min_freq)
 		freqrange_low = freqrange_low * freqrange_low * freqrange_low * freqrange_low
 		freqrange_low = lerp(min_freq, max_freq, freqrange_low)
@@ -57,19 +55,19 @@ func _draw():
 	if visualizer == "linear":
 		var w = h * 2
 		var draw_pos = Vector2(0, 0)
-		var w_interval = w / definition
+		var w_interval = w / global.definition
 		draw_line(Vector2(0, -h), Vector2(w, -h), Color.crimson, 2.0, true)
 		
-		for i in range(definition):
+		for i in range(global.definition):
 			draw_line(draw_pos, draw_pos + Vector2(0, -global.histogram[i] * h), Color.crimson, 4.0, true)
 			draw_pos.x += w_interval
 	# Radial Visualiser
 	elif visualizer == "circle":
 		var angle = PI
-		var angle_interval = 2 * PI / definition
+		var angle_interval = 2 * PI / global.definition
 		var r = h / 2
 		var L = r
-		for i in range(definition):
+		for i in range(global.definition):
 			var normal = Vector2(0, -1).rotated(angle)
 			var start_pos = normal * r
 			var end_pos = normal * (r + global.histogram[i] * L)

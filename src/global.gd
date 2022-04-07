@@ -10,6 +10,7 @@ var playername = "Player"
 var player_points = 0
 
 var histogram = []
+var definition = 60
 
 func _onLineEdittextentered(newtext):
 	playername = newtext
