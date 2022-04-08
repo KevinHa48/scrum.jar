@@ -40,3 +40,6 @@ func _on_QuitBtn_pressed():
 
 func _on_ResetBtn_pressed():
 	self.is_paused = false
+	
+func _on_TitleBtn_pressed():
+	get_tree().change_scene("res://src/TitleScreen.tscn")
