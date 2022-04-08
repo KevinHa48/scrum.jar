@@ -82,3 +82,7 @@ func _on_VolumeSlider_value_changed(value):
 
 func _on_value_changed(value):
 	pass # Replace with function body.
+
+
+func _on_Button_pressed():
+	get_tree().change_scene("res://src/TitleScreen.tscn")
