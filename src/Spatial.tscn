@@ -96,3 +96,8 @@ cast_to = Vector3( 0, 0, -1000 )
 margin_right = 32.0
 margin_bottom = 32.0
 texture = ExtResource( 9 )
+
+[node name="ScoreLabel" type="Label" parent="Player/SpringArm"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "Score:"

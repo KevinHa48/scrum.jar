@@ -22,6 +22,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	var sum = 0
+	for n in global.histogram:
+		sum += n
+	if sum < 5:
+		return
 	# for cube in cubes:
 	# 	if cube.is_colliding():
 	#		cubes.remove(cubes.find(cube))
@@ -46,7 +51,7 @@ func _process(_delta):
 
 func deleteGroundCubes():
 	for cube in cubes:
-		if(is_instance_valid(cube) && cube.translation.y <= 2):
+		if is_instance_valid(cube) && cube.translation.y <= 2:
 			cubes.remove(cubes.find(cube))
 			cube.queue_free()
 
