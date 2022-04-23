@@ -28,7 +28,6 @@ func _ready():
 	add_child(timer)
 	get_tree().get_root().connect("size_changed", self, "on_size_changed")
 	_indicator.force_raycast_update()
-	_retical.visible = true
 	on_size_changed()
 	#_indicator.set_translation(Vector3(0, center.y / 2, _indicator.translation.z))
 	

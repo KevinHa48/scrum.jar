@@ -1,6 +1,7 @@
 extends Spatial
 
 
+onready var _retical = $Player/SpringArm/OVRFirstPerson/Retical
 var fallingCube
 var rng
 var maxCubes = 200
@@ -25,8 +26,9 @@ func _process(_delta):
 	var sum = 0
 	for n in global.histogram:
 		sum += n
-	if sum < 5:
+	if sum < 6:
 		return
+	_retical.visible = true
 	# for cube in cubes:
 	# 	if cube.is_colliding():
 	#		cubes.remove(cubes.find(cube))
@@ -57,7 +59,4 @@ func deleteGroundCubes():
 
 func randomSpawn():
 	rng.randomize()
-	var xcoord = rng.randf_range(-100, 100)
-	rng.randomize()
-	var zcoord = rng.randf_range(-100, 100)
-	return Vector3(xcoord, 30, zcoord)
+	return Vector3(rng.randf_range(-100, 100), 30, rng.randf_range(-100, 100))

@@ -64,6 +64,7 @@ shape = SubResource( 3 )
 [node name="MusicUploadScreen" parent="." instance=ExtResource( 4 )]
 
 [node name="Floor" type="StaticBody" parent="."]
+visible = false
 
 [node name="CollisionShape" type="CollisionShape" parent="Floor"]
 shape = SubResource( 11 )
@@ -98,6 +99,7 @@ exclude_parent = false
 cast_to = Vector3( 0, 0, -1000 )
 
 [node name="Retical" type="TextureRect" parent="Player/SpringArm/OVRFirstPerson"]
+visible = false
 margin_right = 32.0
 margin_bottom = 32.0
 texture = ExtResource( 9 )
