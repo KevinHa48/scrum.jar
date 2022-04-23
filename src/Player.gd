@@ -12,15 +12,20 @@ const hit_scan = true
 onready var _spring_arm: SpringArm = $SpringArm
 onready var bullet = preload("res://src/Bullet.tscn")
 onready var _indicator = $SpringArm/OVRFirstPerson/Indicator
-onready var _scoreLbl = $SpringArm/ScoreLabel
+onready var _scoreLbl = $SpringArm/OVRFirstPerson/VBoxContainer/ScoreLbl
+onready var _newScoreLbl = $SpringArm/OVRFirstPerson/VBoxContainer/NewScoreLbl
 onready var _retical = $SpringArm/OVRFirstPerson/Retical
+onready var _font = _scoreLbl.get_font("font")
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
 
+var timer = Timer.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	timer.connect("timeout",self,"_revert_text") 
+	add_child(timer)
 	get_tree().get_root().connect("size_changed", self, "on_size_changed")
 	_indicator.force_raycast_update()
 	_retical.visible = true
@@ -54,11 +59,25 @@ func _process(_delta):
 				var block = _indicator.get_collider()
 				if block.is_in_group("Falling Box"):
 					block.queue_free()
-					global.player_points += 100
-					print(global.player_points)
+					var newPoints = block.get_translation().y as int
+					global.player_points += newPoints
+					#print(global.player_points)
+					_scored_text(newPoints)
 					_scoreLbl.set_text("Score: " + str(global.player_points))
+					timer.start(0.5)
 			else:
 				var b = bullet.instance()
 				add_child(b)
 				b.look_at(_indicator.get_collision_point(), Vector3.UP)
 				b.shoot = true
+
+func _scored_text(pts):
+	_scoreLbl.set("custom_colors/font_color", Color(255,255,0,1))
+	_font.size = 42
+	_newScoreLbl.visible = true
+	_newScoreLbl.set_text("+" + str(pts))
+				
+func _revert_text():
+	_scoreLbl.set("custom_colors/font_color", Color(1,1,1,1))
+	_font.size = 40
+	_newScoreLbl.visible = false

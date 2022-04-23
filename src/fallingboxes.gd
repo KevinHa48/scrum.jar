@@ -57,5 +57,7 @@ func deleteGroundCubes():
 
 func randomSpawn():
 	rng.randomize()
-	
-	return Vector3(rng.randf_range(-100, 100), 30, rng.randf_range(-100, 100))
+	var xcoord = rng.randf_range(-100, 100)
+	rng.randomize()
+	var zcoord = rng.randf_range(-100, 100)
+	return Vector3(xcoord, 30, zcoord)
