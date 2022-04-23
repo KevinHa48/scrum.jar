@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://src/camera.gd" type="Script" id=1]
 [ext_resource path="res://src/skycolors.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://addons/godot-openvr/scenes/ovr_first_person.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/Player.gd" type="Script" id=7]
 [ext_resource path="res://src/PauseMenu.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/retical.png" type="Texture" id=9]
 
 [sub_resource type="SpatialMaterial" id=1]
 
@@ -41,23 +42,23 @@ script = ExtResource( 5 )
 visible = false
 
 [node name="FallingBox" type="RigidBody" parent="." groups=["Falling Box"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.33453, 32.682, -16.6146 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.9286, 44.078, 25.3019 )
 visible = false
+sleeping = true
 script = ExtResource( 3 )
 
-[node name="MeshInstance" type="MeshInstance" parent="FallingBox"]
+[node name="MeshInstance" type="MeshInstance" parent="FallingBox" groups=["Falling Box"]]
 material_override = SubResource( 1 )
 mesh = SubResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="CollisionShape" type="CollisionShape" parent="FallingBox"]
+[node name="CollisionShape" type="CollisionShape" parent="FallingBox" groups=["Falling Box"]]
 shape = SubResource( 3 )
 
 [node name="MusicUploadScreen" parent="." instance=ExtResource( 4 )]
 
 [node name="Floor" type="StaticBody" parent="."]
-visible = false
 
 [node name="CollisionShape" type="CollisionShape" parent="Floor"]
 shape = SubResource( 11 )
@@ -67,6 +68,7 @@ mesh = SubResource( 10 )
 material/0 = null
 
 [node name="Player" type="KinematicBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.013145, 0.667894, 0.00429678 )
 script = ExtResource( 7 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Player"]
@@ -85,6 +87,12 @@ environment = SubResource( 7 )
 script = ExtResource( 2 )
 
 [node name="Indicator" type="RayCast" parent="Player/SpringArm/OVRFirstPerson"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.80355, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.85, -1.821 )
 enabled = true
+exclude_parent = false
 cast_to = Vector3( 0, 0, -1000 )
+
+[node name="Retical" type="TextureRect" parent="Player/SpringArm/OVRFirstPerson"]
+margin_right = 32.0
+margin_bottom = 32.0
+texture = ExtResource( 9 )

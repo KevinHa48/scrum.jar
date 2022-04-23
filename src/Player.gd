@@ -12,6 +12,8 @@ const hit_scan = true
 onready var _spring_arm: SpringArm = $SpringArm
 onready var bullet = preload("res://src/Bullet.tscn")
 onready var _indicator = $SpringArm/OVRFirstPerson/Indicator
+
+var retical
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -19,7 +21,18 @@ onready var _indicator = $SpringArm/OVRFirstPerson/Indicator
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	get_tree().get_root().connect("size_changed", self, "on_size_changed")
+	_indicator.force_raycast_update()
+	retical = get_node("SpringArm/OVRFirstPerson/Retical")
+	retical.visible = true
+	var center = OS.get_window_size()
+	retical.set_position(Vector2(center.x / 2, center.y / 2))
+	#_indicator.set_translation(Vector3(0, center.y / 2, _indicator.translation.z))
+	
+func on_size_changed():
+	var center = OS.get_window_size()
+	retical.set_position(Vector2(center.x / 2 - 16, center.y / 2 - 16))
+	#_indicator.set_translation(Vector3(0, center.y / 2, _indicator.translation.z))
 	
 func _physics_process(delta):
 	var move_direction := Vector3.ZERO
@@ -41,6 +54,7 @@ func _process(_delta):
 		if _indicator.is_colliding():
 			if hit_scan:
 				var block = _indicator.get_collider()
+				print(block)
 				if block.is_in_group("Falling Box"):
 					block.queue_free()
 					global.player_points += 1
