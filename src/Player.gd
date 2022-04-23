@@ -15,7 +15,9 @@ onready var _indicator = $SpringArm/OVRFirstPerson/Indicator
 onready var _scoreLbl = $SpringArm/OVRFirstPerson/VBoxContainer/ScoreLbl
 onready var _newScoreLbl = $SpringArm/OVRFirstPerson/VBoxContainer/NewScoreLbl
 onready var _retical = $SpringArm/OVRFirstPerson/Retical
+onready var _timeLbl = $SpringArm/OVRFirstPerson/TimeLbl
 onready var _font = _scoreLbl.get_font("font")
+onready var _audioStream = self.get_node("../MusicUploadScreen/AudioStreamPlayer")
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -51,6 +53,8 @@ func _physics_process(delta):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	if _audioStream.stream:
+		_timeLbl.set_text(_format_remaining_time())
 	_spring_arm.translation = translation
 	if Input.is_action_just_pressed("fire"):
 		if _indicator.is_colliding():
@@ -70,6 +74,24 @@ func _process(_delta):
 				b.look_at(_indicator.get_collision_point(), Vector3.UP)
 				b.shoot = true
 
+func _format_remaining_time():
+	var curTime = _audioStream.get_playback_position() as int
+	var totalTime = _audioStream.stream.get_length() as int
+	var timeLeftSecs = totalTime - curTime
+	var timeLeftMins = timeLeftSecs / 60 as int
+	timeLeftSecs = timeLeftSecs % 60 as int
+	
+	var retStr = ""
+	
+	if timeLeftMins < 10:
+		retStr += "0"
+	retStr += str(timeLeftMins) + ":"
+	if timeLeftSecs < 10:
+		retStr += "0"
+	retStr += str(timeLeftSecs)
+	
+	return retStr
+	
 func _scored_text(pts):
 	_scoreLbl.set("custom_colors/font_color", Color(255,255,0,1))
 	_font.size = 42

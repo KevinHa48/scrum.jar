@@ -104,6 +104,19 @@ margin_right = 32.0
 margin_bottom = 32.0
 texture = ExtResource( 9 )
 
+[node name="TimeLbl" type="Label" parent="Player/SpringArm/OVRFirstPerson"]
+anchor_left = 0.884
+anchor_right = 1.0
+anchor_bottom = 0.092
+margin_left = -0.216064
+margin_top = 2.0
+margin_right = -6.0
+margin_bottom = -0.200005
+rect_pivot_offset = Vector2( -604, 71 )
+custom_fonts/font = SubResource( 13 )
+text = "00:00"
+align = 2
+
 [node name="VBoxContainer" type="VBoxContainer" parent="Player/SpringArm/OVRFirstPerson"]
 margin_left = 1.0
 margin_right = 41.0
