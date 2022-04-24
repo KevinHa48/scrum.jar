@@ -107,6 +107,7 @@ func _on_ConfirmBtn_pressed():
 		file.open(filePath, File.READ)
 		var audio = determineFileType()
 		if audio:
+			$NinePatchRect/VBoxContainer/Genres.text = "Genres: "
 			audio.set_data(file.get_buffer(file.get_len()))
 			# Add file to musicDir if it isn't already there
 			if not file.file_exists(musicDir + fileName):
