@@ -27,7 +27,7 @@ func _process(_delta):
 	if not global.songplaying:
 		deleteAllCubes()
 		return
-	_retical.visible = true
+	_retical.visible = not global.paused
 	var sum = 0
 	for n in global.histogram:
 		sum += n

@@ -19,6 +19,7 @@ var mouseactive = false
 
 var songplaying = false
 var songchosen = false
+var paused = false
 
 var safetyMode = false
 
