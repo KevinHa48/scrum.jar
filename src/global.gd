@@ -23,6 +23,8 @@ var paused = false
 
 var safetyMode = false
 
+var vrMode = false
+
 # func onButtonpressed():
 	#gettree().changescene("res://Scenes/TestWorld.tscn")
 	# print("Welcome " + str(global.playername))

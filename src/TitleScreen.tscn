@@ -192,15 +192,29 @@ script = ExtResource( 7 )
 scale = Vector2( 1e-05, 1e-05 )
 
 [node name="SafetyModeToggle" type="CheckButton" parent="NinePatchRect"]
-margin_left = 287.0
-margin_top = 54.0
-margin_right = 363.0
-margin_bottom = 94.0
+margin_left = 180.0
+margin_top = 55.0
+margin_right = 256.0
+margin_bottom = 95.0
+
+[node name="VRModeToggle" type="CheckButton" parent="NinePatchRect"]
+margin_left = 388.0
+margin_top = 56.0
+margin_right = 464.0
+margin_bottom = 96.0
+
+[node name="Label3" type="Label" parent="NinePatchRect"]
+margin_left = 256.0
+margin_top = 69.0
+margin_right = 392.0
+margin_bottom = 83.0
+text = "VR Mode (Destress)"
+align = 1
 
 [node name="Label2" type="Label" parent="NinePatchRect"]
-margin_left = 157.0
+margin_left = 48.0
 margin_top = 68.0
-margin_right = 293.0
+margin_right = 184.0
 margin_bottom = 82.0
 text = "Seizure Safety Mode"
 align = 1
@@ -220,3 +234,4 @@ autoplay = true
 [connection signal="pressed" from="NinePatchRect/VBoxContainer/QuitBtn" to="." method="_on_QuitBtn_pressed"]
 [connection signal="text_entered" from="NinePatchRect/VBoxContainer/LineEdit" to="." method="_onLineEdittextentered"]
 [connection signal="toggled" from="NinePatchRect/SafetyModeToggle" to="." method="_on_SafetyModeToggle_toggled"]
+[connection signal="toggled" from="NinePatchRect/VRModeToggle" to="." method="_on_VRModeToggle_toggled"]

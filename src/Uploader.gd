@@ -119,8 +119,11 @@ func _on_ConfirmBtn_pressed():
 			if not file.file_exists(musicDir + fileName):
 				addToMusicDir()
 			global.songchosen = true
-			_audioStream.set_stream(audio)
-			_audioStream.play()
+			$AudioStreamPlayer.set_stream(audio)
+			$AudioStreamPlayer.play()
+			if global.vrMode:
+				# turn to ARVR mode
+				get_viewport().arvr = true
 			global.songplaying = true
 			displayGenres()
 			hide()
