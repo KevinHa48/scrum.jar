@@ -57,6 +57,8 @@ func _physics_process(delta):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	if not global.songplaying:
+		return
 	if _audioStream.stream:
 		_timeLbl.set_text(_format_remaining_time())
 	_spring_arm.translation = translation
