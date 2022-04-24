@@ -9,11 +9,13 @@ func _unhandled_input(event):
 func set_is_paused(_value):
 	is_paused = !is_paused;
 	visible = is_paused
-	global.songplaying = !is_paused
+	# global.songplaying = !is_paused
 	if is_paused:
+		# $"/TitleScreen/NinePatchRect/AudioPlayer".stream_paused = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		global.mouseactive = false
 	else:
+		# $TitleScreen/NinePatchRect/AudioPlayer.stream_paused = false
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		global.mouseactive = true
 # Declare member variables here. Examples:
