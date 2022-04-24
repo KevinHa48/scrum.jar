@@ -26,9 +26,10 @@ The gameplay is simple to learn for everyone to maximize interactivity while min
 - Click `Browse` to add a song to play
 - If you have already added songs, click `Uploaded` and select a song from there
 - Press `Confirm` when you know what you want to play
-- Once your music starts playing, aim your cursor at the falling boxes and press the left mouse button or right trigger on a controller to fire a projectile at the falling box.
-- For each box you successfully hit, you will receive a point and the box will disappear.
-- During the length of your song, try to maximize the amount of boxes you can hit!
+- Once your music starts playing, aim your cursor at the falling boxes and press the left mouse button or right trigger on a controller to hit the box.
+- For each box you successfully hit, you will receive points based on how close the box is to the ground when it falls
+    - The higher the box, the greater the points.
+- During the length of your song, try to maximize the amount of boxes you can hit.
 
 ## Setting Up Development Environment
 - Install latest stable version of the Godot game engine (https://godotengine.org/download)
