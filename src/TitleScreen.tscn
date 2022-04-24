@@ -208,7 +208,7 @@ margin_left = 256.0
 margin_top = 69.0
 margin_right = 392.0
 margin_bottom = 83.0
-text = "VR Mode"
+text = "VR Mode (Destress)"
 align = 1
 
 [node name="Label2" type="Label" parent="NinePatchRect"]

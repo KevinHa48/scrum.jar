@@ -115,6 +115,9 @@ func _on_ConfirmBtn_pressed():
 			global.songchosen = true
 			$AudioStreamPlayer.set_stream(audio)
 			$AudioStreamPlayer.play()
+			if global.vrMode:
+				# turn to ARVR mode
+				get_viewport().arvr = true
 			global.songplaying = true
 			displayGenres()
 			hide()
