@@ -8,6 +8,9 @@ var play_origin = 'normal'
 var playername = "Player"
 
 var player_points = 0
+var shots_hit = 0
+var shots_fired = 0
+var acc_score = 0
 
 var histogram = []
 var definition = 60
