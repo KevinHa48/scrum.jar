@@ -51,3 +51,7 @@ func _on_SafetyModeToggle_toggled(_button_pressed):
 
 func _onLineEdittextentered(textentered):
 	global.playername = textentered
+
+
+func _on_VRModeToggle_toggled(button_pressed):
+	global.vrMode = !global.vrMode
