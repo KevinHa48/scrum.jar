@@ -11,6 +11,8 @@ var maxCubes = 400
 # var b = "text"
 var cubes = []
 
+var enabledGameplay = global.play_origin != 'destress'
+
 func on_newCube_body_entered(body):
 	# If cube has collided with ground, delete it from the scene and the list.
 	cubes.remove(cubes.find(body))
