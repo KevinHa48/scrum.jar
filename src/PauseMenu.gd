@@ -9,7 +9,7 @@ func _unhandled_input(event):
 func set_is_paused(_value):
 	is_paused = !is_paused;
 	visible = is_paused
-	global.visualizer = !is_paused
+	global.songplaying = !is_paused
 	if is_paused:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		global.mouseactive = false

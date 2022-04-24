@@ -11,7 +11,7 @@ func histogram_sum(start, end):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if not global.visualizer:
+	if not global.songplaying:
 		self.environment.background_color = Color(0, 0, 0, 1)
 		return
 	var low = histogram_sum(0, 1)

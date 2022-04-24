@@ -24,7 +24,7 @@ func _ready():
 		global.histogram.append(0)
 
 func _process(delta):
-	visible = global.visualizer;
+	visible = global.songplaying;
 	var freq = min_freq
 	var interval = (max_freq - min_freq) / global.definition
 	
@@ -52,7 +52,7 @@ func _process(delta):
 	self.position = get_viewport_rect().size / 2
 
 func _draw():
-	if not global.visualizer:
+	if not global.songplaying:
 		return
 	var color = Color(0, 0, 1, 1)
 	# Linear Visualiser

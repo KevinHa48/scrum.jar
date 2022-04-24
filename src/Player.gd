@@ -80,6 +80,8 @@ func _format_remaining_time():
 	var curTime = _audioStream.get_playback_position() as int
 	var totalTime = _audioStream.stream.get_length() as int
 	var timeLeftSecs = totalTime - curTime
+	if not timeLeftSecs:
+		global.songplaying = false
 	var timeLeftMins = timeLeftSecs / 60 as int
 	timeLeftSecs = timeLeftSecs % 60 as int
 	

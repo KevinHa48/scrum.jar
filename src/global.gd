@@ -14,7 +14,7 @@ var definition = 60
 
 var mouseactive = false
 
-var visualizer = false
+var songplaying = false
 
 var safetyMode = false
 

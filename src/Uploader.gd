@@ -108,16 +108,16 @@ func _on_ConfirmBtn_pressed():
 		var audio = determineFileType()
 		if audio:
 			audio.set_data(file.get_buffer(file.get_len()))
-			# Add file to musicDir
+			# Add file to musicDir if it isn't already there
 			if not file.file_exists(musicDir + fileName):
 				addToMusicDir()
 			$AudioStreamPlayer.set_stream(audio)
 			$AudioStreamPlayer.play()
-			global.visualizer = true;
+			global.songplaying = true
 			displayGenres()
 			hide()
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			global.mouseactive = true;
+			global.mouseactive = true
 		else:
 			$NinePatchRect/VBoxContainer/Genres.text = "Given file cannot be played."
 
