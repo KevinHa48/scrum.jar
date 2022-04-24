@@ -123,19 +123,35 @@ margin_right = 41.0
 margin_bottom = 40.0
 
 [node name="ScoreLbl" type="Label" parent="Player/SpringArm/OVRFirstPerson/VBoxContainer"]
-margin_right = 113.0
+margin_right = 114.0
 margin_bottom = 53.0
-rect_pivot_offset = Vector2( -604, 71 )
+rect_pivot_offset = Vector2( -256, 399 )
 custom_fonts/font = SubResource( 13 )
 text = "Score:"
 
 [node name="NewScoreLbl" type="Label" parent="Player/SpringArm/OVRFirstPerson/VBoxContainer"]
 margin_top = 57.0
-margin_right = 113.0
+margin_right = 114.0
 margin_bottom = 110.0
 rect_pivot_offset = Vector2( -604, 71 )
 custom_colors/font_color = Color( 1, 1, 0, 1 )
 custom_fonts/font = SubResource( 13 )
+
+[node name="ShotsLbl" type="Label" parent="Player/SpringArm/OVRFirstPerson/VBoxContainer"]
+margin_top = 114.0
+margin_right = 114.0
+margin_bottom = 167.0
+rect_pivot_offset = Vector2( -604, 71 )
+custom_fonts/font = SubResource( 13 )
+text = "Shots:"
+
+[node name="HitsLbl" type="Label" parent="Player/SpringArm/OVRFirstPerson/VBoxContainer"]
+margin_top = 171.0
+margin_right = 114.0
+margin_bottom = 224.0
+rect_pivot_offset = Vector2( -604, 71 )
+custom_fonts/font = SubResource( 13 )
+text = "Hits:"
 
 [node name="SafetyModeLbl" type="Label" parent="Player/SpringArm/OVRFirstPerson"]
 margin_left = 10.0

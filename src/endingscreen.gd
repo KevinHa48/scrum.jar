@@ -27,7 +27,6 @@ func _on_Selection_pressed():
 func _on_Replay_pressed():
 	$MenuInterface.visible = false
 
-
 func _on_MainMenu_pressed():
 	$TitleScreen.visible = true
 	$MenuInterFace.visible = false

@@ -30,6 +30,9 @@ func _on_OptsBtn_pressed():
 	$OptionsMenuScreen.visible = true
 
 func _on_PlayBtn_pressed():
+	global.shots_fired = 0
+	global.shots_hit = 0
+	global.acc_score = 0
 	global.play_origin = 'normal'
 	get_tree().change_scene("res://src/Spatial.tscn")
 
