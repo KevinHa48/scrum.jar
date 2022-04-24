@@ -57,10 +57,14 @@ func _physics_process(delta):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if not global.songplaying:
+	if not global.songchosen:
 		return
-	if _audioStream.stream:
-		_timeLbl.set_text(_format_remaining_time())
+	if not global.songplaying:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		global.mouseactive = false
+		var _status = get_tree().change_scene("res://src/EndingScreen.tscn")
+		return
+	_timeLbl.set_text(_format_remaining_time())
 	_spring_arm.translation = translation
 	if Input.is_action_just_pressed("fire"):
 		if _indicator.is_colliding():

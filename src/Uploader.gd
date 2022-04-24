@@ -111,6 +111,7 @@ func _on_ConfirmBtn_pressed():
 			# Add file to musicDir if it isn't already there
 			if not file.file_exists(musicDir + fileName):
 				addToMusicDir()
+			global.songchosen = true
 			$AudioStreamPlayer.set_stream(audio)
 			$AudioStreamPlayer.play()
 			global.songplaying = true

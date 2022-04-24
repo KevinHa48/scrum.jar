@@ -18,6 +18,7 @@ var definition = 60
 var mouseactive = false
 
 var songplaying = false
+var songchosen = false
 
 var safetyMode = false
 
