@@ -14,6 +14,7 @@ onready var bullet = preload("res://src/Bullet.tscn")
 onready var _indicator = $SpringArm/OVRFirstPerson/Indicator
 onready var _scoreLbl = $SpringArm/OVRFirstPerson/VBoxContainer/ScoreLbl
 onready var _newScoreLbl = $SpringArm/OVRFirstPerson/VBoxContainer/NewScoreLbl
+onready var _safetyModeLbl = $SpringArm/OVRFirstPerson/SafetyModeLbl
 onready var _retical = $SpringArm/OVRFirstPerson/Retical
 onready var _timeLbl = $SpringArm/OVRFirstPerson/TimeLbl
 onready var _font = _scoreLbl.get_font("font")
@@ -26,6 +27,7 @@ var timer = Timer.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	_show_safety_label()
 	timer.connect("timeout",self,"_revert_text") 
 	add_child(timer)
 	get_tree().get_root().connect("size_changed", self, "on_size_changed")
@@ -102,3 +104,6 @@ func _revert_text():
 	_scoreLbl.set("custom_colors/font_color", Color(1,1,1,1))
 	_font.size = 40
 	_newScoreLbl.visible = false
+
+func _show_safety_label():
+	_safetyModeLbl.visible = global.safetyMode

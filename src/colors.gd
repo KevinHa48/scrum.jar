@@ -17,6 +17,9 @@ func _ready():
 func calcColors():
 	var color_change_rate = 0.05
 	
+	if(global.safetyMode):
+		color_change_rate /= 2
+	
 	if r >= 1.0: rup = false
 	elif r <= 0.5: rup = true
 	

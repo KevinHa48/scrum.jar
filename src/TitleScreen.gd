@@ -37,10 +37,14 @@ func _on_PlayBtn_pressed():
 func _on_DestressBtn_pressed():
 	global.play_origin = 'destress'
 	get_tree().change_scene("res://src/Spatial.tscn")
-
+	
+func _on_SafetyModeToggle_toggled(button_pressed):
+	# Initially set to false
+	global.safetyMode = !global.safetyMode
  #variable will be created when script's owner is ready
 
 func _onLineEdittextentered(textentered):
 	global.playername = textentered
-	
 	print("Welcome " + str(global.playername))
+
+

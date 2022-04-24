@@ -191,6 +191,20 @@ script = ExtResource( 7 )
 [node name="AudioPlayer" type="AudioStreamPlayer2D" parent="NinePatchRect"]
 scale = Vector2( 1e-05, 1e-05 )
 
+[node name="SafetyModeToggle" type="CheckButton" parent="NinePatchRect"]
+margin_left = 287.0
+margin_top = 54.0
+margin_right = 363.0
+margin_bottom = 94.0
+
+[node name="Label2" type="Label" parent="NinePatchRect"]
+margin_left = 157.0
+margin_top = 68.0
+margin_right = 293.0
+margin_bottom = 82.0
+text = "Seizure Safety Mode"
+align = 1
+
 [node name="OptionsMenuScreen" parent="." instance=ExtResource( 6 )]
 visible = false
 
@@ -205,3 +219,4 @@ autoplay = true
 [connection signal="pressed" from="NinePatchRect/VBoxContainer/OptsBtn" to="." method="_on_OptsBtn_pressed"]
 [connection signal="pressed" from="NinePatchRect/VBoxContainer/QuitBtn" to="." method="_on_QuitBtn_pressed"]
 [connection signal="text_entered" from="NinePatchRect/VBoxContainer/LineEdit" to="." method="_onLineEdittextentered"]
+[connection signal="toggled" from="NinePatchRect/SafetyModeToggle" to="." method="_on_SafetyModeToggle_toggled"]

@@ -16,6 +16,8 @@ var mouseactive = false;
 
 var visualizer = false;
 
+var safetyMode = false;
+
 func _onLineEdittextentered(newtext):
 	playername = newtext
 	global.playername = newtext
