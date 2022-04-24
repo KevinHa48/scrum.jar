@@ -37,12 +37,18 @@ func _on_PlayBtn_pressed():
 	global.shots_hit = 0
 	global.acc_score = 0
 	global.play_origin = 'normal'
-	var _status = get_tree().change_scene("res://src/Spatial.tscn")
+	if global.vrMode:
+		var _status = get_tree().change_scene("res://src/SpatialVR.tscn")
+	else:
+		var _status = get_tree().change_scene("res://src/Spatial.tscn")
 
 
 func _on_DestressBtn_pressed():
 	global.play_origin = 'destress'
-	var _status = get_tree().change_scene("res://src/Spatial.tscn")
+	if global.vrMode:
+		var _status = get_tree().change_scene("res://src/SpatialVR.tscn")
+	else:
+		var _status = get_tree().change_scene("res://src/Spatial.tscn")
 	
 func _on_SafetyModeToggle_toggled(_button_pressed):
 	# Initially set to false
