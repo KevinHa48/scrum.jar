@@ -102,13 +102,15 @@ func _on_LineEdit_text_changed(new_text):
 func _on_ConfirmBtn_pressed():
 	var file = File.new()
 	file.open(filePath, File.READ)
+	var fileName = filePath.get_file()
 	if file.file_exists(filePath):
 		file.open(filePath, File.READ)
 		var audio = determineFileType()
 		if audio:
 			audio.set_data(file.get_buffer(file.get_len()))
 			# Add file to musicDir
-			addToMusicDir()
+			if not file.file_exists(musicDir + fileName):
+				addToMusicDir()
 			$AudioStreamPlayer.set_stream(audio)
 			$AudioStreamPlayer.play()
 			global.visualizer = true;
