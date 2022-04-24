@@ -12,11 +12,11 @@ var player_points = 0
 var histogram = []
 var definition = 60
 
-var mouseactive = false;
+var mouseactive = false
 
-var visualizer = false;
+var visualizer = false
 
-var safetyMode = false;
+var safetyMode = false
 
 func _onLineEdittextentered(newtext):
 	playername = newtext

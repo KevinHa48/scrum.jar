@@ -12,7 +12,7 @@ func _ready():
 	get_viewport().set_shadow_atlas_size(2048)
 	get_viewport().set_msaa(get_viewport().MSAA_8X)
 	ProjectSettings.set_setting("rendering/quality/filters/anisotropic_filter_level", 8)
-	ProjectSettings.save()
+	var _status = ProjectSettings.save()
 	resolutions.select(1)
 	OS.set_window_size(Vector2(1600, 900))
 	if(!OS.window_fullscreen):
@@ -58,31 +58,31 @@ func _on_resolutions_options_item_selected(index):
 	pass
 	
 func _on_graphics_options_item_selected(index):
+	var _status
 	if(index == 0): #high
 		get_viewport().set_shadow_atlas_size(8192)
 		get_viewport().set_msaa(get_viewport().MSAA_16X)
 		ProjectSettings.set_setting("rendering/quality/filters/anisotropic_filter_level", 16)
-		ProjectSettings.save()
+		_status = ProjectSettings.save()
 	elif(index == 1): #medium
 		get_viewport().set_shadow_atlas_size(2048)
 		get_viewport().set_msaa(get_viewport().MSAA_8X)
 		ProjectSettings.set_setting("rendering/quality/filters/anisotropic_filter_level", 8)
-		ProjectSettings.save()
+		_status = ProjectSettings.save()
 	else: #low
 		get_viewport().set_shadow_atlas_size(512)
 		get_viewport().set_msaa(get_viewport().MSAA_DISABLED)
 		ProjectSettings.set_setting("rendering/quality/filters/anisotropic_filter_level", 2)
-		ProjectSettings.save()
-	pass
+		_status = ProjectSettings.save()
 
 
-func _on_VolumeSlider_value_changed(value):
+func _on_VolumeSlider_value_changed(_value):
 	pass # Replace with function body.
 
 
-func _on_value_changed(value):
+func _on_value_changed(_value):
 	pass # Replace with function body.
 
 
 func _on_Button_pressed():
-	get_tree().change_scene("res://src/TitleScreen.tscn")
+	var _status = get_tree().change_scene("res://src/TitleScreen.tscn")

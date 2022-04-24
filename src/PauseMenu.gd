@@ -6,7 +6,7 @@ func _unhandled_input(event):
 	if event.is_action_pressed('pause'):
 		set_is_paused(self.is_paused)
 
-func set_is_paused(value):
+func set_is_paused(_value):
 	is_paused = !is_paused;
 	visible = is_paused
 	global.visualizer = !is_paused
@@ -42,4 +42,4 @@ func _on_ResetBtn_pressed():
 	self.is_paused = false
 	
 func _on_TitleBtn_pressed():
-	get_tree().change_scene("res://src/TitleScreen.tscn")
+	var _status = get_tree().change_scene("res://src/TitleScreen.tscn")

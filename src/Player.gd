@@ -30,7 +30,7 @@ func _ready():
 	_show_safety_label()
 	timer.connect("timeout",self,"_revert_text") 
 	add_child(timer)
-	get_tree().get_root().connect("size_changed", self, "on_size_changed")
+	var _status = get_tree().get_root().connect("size_changed", self, "on_size_changed")
 	_indicator.force_raycast_update()
 	on_size_changed()
 	#_indicator.set_translation(Vector3(0, center.y / 2, _indicator.translation.z))

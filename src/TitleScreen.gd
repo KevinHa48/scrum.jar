@@ -8,8 +8,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$NinePatchRect/AudioPlayer
-	pass # Replace with function body.
+	var _audio_player = $NinePatchRect/AudioPlayer
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -19,6 +18,10 @@ func _ready():
 func _on_MusicUploadBtn_pressed():
 	$NinePatchRect.visible = false
 	$MusicUploadScreen.visible = true
+
+
+func _on_MusicUploadBtn_toggled():
+	pass
 
 
 func _on_QuitBtn_pressed():
@@ -31,20 +34,17 @@ func _on_OptsBtn_pressed():
 
 func _on_PlayBtn_pressed():
 	global.play_origin = 'normal'
-	get_tree().change_scene("res://src/Spatial.tscn")
+	var _status = get_tree().change_scene("res://src/Spatial.tscn")
 
 
 func _on_DestressBtn_pressed():
 	global.play_origin = 'destress'
-	get_tree().change_scene("res://src/Spatial.tscn")
+	var _status = get_tree().change_scene("res://src/Spatial.tscn")
 	
-func _on_SafetyModeToggle_toggled(button_pressed):
+func _on_SafetyModeToggle_toggled(_button_pressed):
 	# Initially set to false
 	global.safetyMode = !global.safetyMode
  #variable will be created when script's owner is ready
 
 func _onLineEdittextentered(textentered):
 	global.playername = textentered
-	print("Welcome " + str(global.playername))
-
-

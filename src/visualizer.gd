@@ -9,7 +9,7 @@ var min_freq = 20
 var max_freq = 20000
 
 # Size adjuster
-var h = 800
+var h = 50
 
 var max_db = 0
 var min_db = -40
@@ -52,15 +52,18 @@ func _process(delta):
 	self.position = get_viewport_rect().size / 2
 
 func _draw():
+	if not global.visualizer:
+		return
+	var color = Color(0, 0, 1, 1)
 	# Linear Visualiser
 	if visualizer == "linear":
 		var w = h * 2
 		var draw_pos = Vector2(0, 0)
 		var w_interval = w / global.definition
-		draw_line(Vector2(0, -h), Vector2(w, -h), Color.crimson, 2.0, true)
+		draw_line(Vector2(0, -h), Vector2(w, -h), color, 2.0, true)
 		
 		for i in range(global.definition):
-			draw_line(draw_pos, draw_pos + Vector2(0, -global.histogram[i] * h), Color.crimson, 4.0, true)
+			draw_line(draw_pos, draw_pos + Vector2(0, -global.histogram[i] * h), color, 4.0, true)
 			draw_pos.x += w_interval
 	# Radial Visualiser
 	elif visualizer == "circle":
@@ -72,5 +75,5 @@ func _draw():
 			var normal = Vector2(0, -1).rotated(angle)
 			var start_pos = normal * r
 			var end_pos = normal * (r + global.histogram[i] * L)
-			draw_line(start_pos, end_pos, Color.dodgerblue, 4.0, true)
+			draw_line(start_pos, end_pos, color, 4.0, true)
 			angle += angle_interval
