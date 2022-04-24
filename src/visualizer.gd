@@ -9,7 +9,7 @@ var min_freq = 20
 var max_freq = 20000
 
 # Size adjuster
-var h = 50
+var h = 10
 
 var max_db = 0
 var min_db = -40
@@ -54,12 +54,13 @@ func _process(delta):
 func _draw():
 	if not global.songplaying:
 		return
-	var color = Color(0, 0, 1, 1)
+
 	# Linear Visualiser
 	if visualizer == "linear":
 		var w = h * 2
 		var draw_pos = Vector2(0, 0)
 		var w_interval = w / global.definition
+		var color = Color(0, 0, 1, 1)
 		draw_line(Vector2(0, -h), Vector2(w, -h), color, 2.0, true)
 		
 		for i in range(global.definition):
@@ -72,8 +73,10 @@ func _draw():
 		var r = h / 2
 		var L = r
 		for i in range(global.definition):
+			var elem = global.histogram[i]
+			var color = Color(elem + 0.1, elem, elem + 0.2, 0.2)
 			var normal = Vector2(0, -1).rotated(angle)
 			var start_pos = normal * r
-			var end_pos = normal * (r + global.histogram[i] * L)
+			var end_pos = normal * (r + elem * L * 50)
 			draw_line(start_pos, end_pos, color, 4.0, true)
 			angle += angle_interval

@@ -21,11 +21,6 @@ var songplaying = false
 
 var safetyMode = false
 
-func _onLineEdittextentered(newtext):
-	playername = newtext
-	global.playername = newtext
-	
-
 # func onButtonpressed():
 	#gettree().changescene("res://Scenes/TestWorld.tscn")
 	# print("Welcome " + str(global.playername))

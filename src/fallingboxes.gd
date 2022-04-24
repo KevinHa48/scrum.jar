@@ -26,12 +26,12 @@ func _process(_delta):
 	if not global.songplaying:
 		deleteAllCubes()
 		return
+	_retical.visible = true
 	var sum = 0
 	for n in global.histogram:
 		sum += n
 	if sum < 6:
 		return
-	_retical.visible = true
 	# for cube in cubes:
 	# 	if cube.is_colliding():
 	#		cubes.remove(cubes.find(cube))
