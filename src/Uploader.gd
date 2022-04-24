@@ -2,6 +2,8 @@ extends Control
 
 var filePath = ""
 var musicDir = "user://music/"
+
+onready var _uploadDiag = $NinePatchRect/UploadDlg
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -19,8 +21,8 @@ func _ready():
 
 
 func _on_BrowseBtn_pressed():
-	$NinePatchRect/UploadDlg.access = 2
-	$NinePatchRect/UploadDlg.popup()
+	_uploadDiag.access = 2
+	_uploadDiag.popup()
 
 
 func _on_UploadedBtn_pressed():
