@@ -14,6 +14,9 @@ onready var bullet = preload("res://src/Bullet.tscn")
 onready var _indicator = $SpringArm/OVRFirstPerson/Indicator
 onready var _scoreLbl = $SpringArm/OVRFirstPerson/VBoxContainer/ScoreLbl
 onready var _newScoreLbl = $SpringArm/OVRFirstPerson/VBoxContainer/NewScoreLbl
+onready var _accLbl = $SpringArm/OVRFirstPerson/VBoxContainer/AccLbl
+onready var _shotsLbl = $SpringArm/OVRFirstPerson/VBoxContainer/ShotsLbl
+onready var _hitsLbl = $SpringArm/OVRFirstPerson/VBoxContainer/HitsLbl
 onready var _safetyModeLbl = $SpringArm/OVRFirstPerson/SafetyModeLbl
 onready var _retical = $SpringArm/OVRFirstPerson/Retical
 onready var _timeLbl = $SpringArm/OVRFirstPerson/TimeLbl
@@ -51,7 +54,6 @@ func _physics_process(delta):
 	_velocity.y -= gravity * delta
 	
 	_velocity = move_and_slide_with_snap(_velocity, _snap_vector, Vector3.UP, true)
-	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -67,14 +69,25 @@ func _process(_delta):
 					var newPoints = block.get_translation().y as int
 					global.player_points += newPoints
 					#print(global.player_points)
+					
+					global.shots_fired += 1
+					_shotsLbl.set_text("Shots: " + str(global.shots_fired))
+					
 					_scored_text(newPoints)
 					_scoreLbl.set_text("Score: " + str(global.player_points))
+					
+					global.shots_hit += 1
+					_hitsLbl.set_text("Hits: " + str(global.shots_hit))
+					
 					timer.start(0.5)
 			else:
 				var b = bullet.instance()
 				add_child(b)
 				b.look_at(_indicator.get_collision_point(), Vector3.UP)
 				b.shoot = true
+		else:
+			global.shots_fired += 1
+			_shotsLbl.set_text("Shots: " + str(global.shots_fired))
 
 func _format_remaining_time():
 	var curTime = _audioStream.get_playback_position() as int
