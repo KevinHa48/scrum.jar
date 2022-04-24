@@ -14,7 +14,7 @@ onready var bullet = preload("res://src/Bullet.tscn")
 onready var _indicator = $SpringArm/OVRFirstPerson/Indicator
 onready var _scoreLbl = $SpringArm/OVRFirstPerson/VBoxContainer/ScoreLbl
 onready var _newScoreLbl = $SpringArm/OVRFirstPerson/VBoxContainer/NewScoreLbl
-onready var _accLbl = $SpringArm/OVRFirstPerson/VBoxContainer/AccLbl
+# onready var _accLbl = $SpringArm/OVRFirstPerson/VBoxContainer/AccLbl
 onready var _shotsLbl = $SpringArm/OVRFirstPerson/VBoxContainer/ShotsLbl
 onready var _hitsLbl = $SpringArm/OVRFirstPerson/VBoxContainer/HitsLbl
 onready var _safetyModeLbl = $SpringArm/OVRFirstPerson/SafetyModeLbl
@@ -28,8 +28,13 @@ onready var _audioStream = self.get_node("../MusicUploadScreen/AudioStreamPlayer
 
 var timer = Timer.new()
 
+var enableGameplay = global.play_origin != 'destress'
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	_scoreLbl.visible = enableGameplay
+	_hitsLbl.visible = enableGameplay
+	_shotsLbl.visible = enableGameplay
 	_show_safety_label()
 	timer.connect("timeout",self,"_revert_text") 
 	add_child(timer)
@@ -66,6 +71,10 @@ func _process(_delta):
 		return
 	_timeLbl.set_text(_format_remaining_time())
 	_spring_arm.translation = translation
+	
+	if !enableGameplay:
+		return
+		
 	if Input.is_action_just_pressed("fire"):
 		if _indicator.is_colliding():
 			if hit_scan:

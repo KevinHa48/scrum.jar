@@ -24,7 +24,7 @@ func _ready():
 		global.histogram.append(0)
 
 func _process(delta):
-	visible = global.songplaying;
+	visible = not global.paused;
 	var freq = min_freq
 	var interval = (max_freq - min_freq) / global.definition
 	

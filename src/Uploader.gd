@@ -2,6 +2,12 @@ extends Control
 
 var filePath = ""
 var musicDir = "user://music/"
+
+onready var _uploadDiag = $NinePatchRect/UploadDlg
+onready var _genre_input = $NinePatchRect/VBoxContainer/GenreInput
+onready var _genreLbl = $NinePatchRect/VBoxContainer/Genres
+onready var _audioStream = $AudioStreamPlayer
+onready var _filePathInput = $NinePatchRect/VBoxContainer/FilePathInput
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -19,17 +25,17 @@ func _ready():
 
 
 func _on_BrowseBtn_pressed():
-	$NinePatchRect/UploadDlg.access = 2
-	$NinePatchRect/UploadDlg.popup()
+	_uploadDiag.access = 2
+	_uploadDiag.popup()
 
 
 func _on_UploadedBtn_pressed():
 	var dir = Directory.new()
 	if dir.dir_exists(musicDir):
-		$NinePatchRect/UploadDlg.access = 1
-		$NinePatchRect/UploadDlg.current_dir = musicDir
-		$NinePatchRect/UploadDlg.current_path = musicDir
-		$NinePatchRect/UploadDlg.popup()
+		_uploadDiag.access = 1
+		_uploadDiag.current_dir = musicDir
+		_uploadDiag.current_path = musicDir
+		_uploadDiag.popup()
 
 
 func _on_AddGenreBtn_pressed():
@@ -50,14 +56,14 @@ func _on_AddGenreBtn_pressed():
 			entry = file.get_csv_line()
 			if entry.size() > 0:
 				if entry[0] == fileName:
-					entry.append($NinePatchRect/VBoxContainer/GenreInput.text)
+					entry.append(_genre_input.text)
 					fileExists = true
 				tempFile.store_csv_line(entry)
 		
 		if file.eof_reached() && !fileExists:
 			tempFile.store_csv_line(
 				PoolStringArray(
-					[fileName, $NinePatchRect/VBoxContainer/GenreInput.text]))
+					[fileName, _genre_input.text]))
 		
 		file.close()
 		tempFile.close()
@@ -76,7 +82,7 @@ func _on_AddGenreBtn_pressed():
 			if entry == fileName:
 				file.store_csv_line(
 					PoolStringArray(
-						[fileName, $NinePatchRect/VBoxContainer/GenreInput.text]))
+						[fileName, _genre_input.text]))
 			else:
 				file.store_csv_line(
 					PoolStringArray(
@@ -90,14 +96,14 @@ func _on_AddGenreBtn_pressed():
 			
 
 func _on_UploadDlg_file_selected(path):
-	$NinePatchRect/VBoxContainer/FilePathInput.text = path
+	_filePathInput.text = path
 	filePath = path
-	$NinePatchRect/VBoxContainer/Genres.text = "Genres: "
+	_genreLbl.text = "Genres: "
 
 
 func _on_LineEdit_text_changed(new_text):
 	filePath = new_text
-	$NinePatchRect/VBoxContainer/Genres.text = "Genres: "
+	_genreLbl.text = "Genres: "
 
 func _on_ConfirmBtn_pressed():
 	var file = File.new()
@@ -107,7 +113,7 @@ func _on_ConfirmBtn_pressed():
 		file.open(filePath, File.READ)
 		var audio = determineFileType()
 		if audio:
-			$NinePatchRect/VBoxContainer/Genres.text = "Genres: "
+			_genreLbl.text = "Genres: "
 			audio.set_data(file.get_buffer(file.get_len()))
 			# Add file to musicDir if it isn't already there
 			if not file.file_exists(musicDir + fileName):
@@ -124,7 +130,7 @@ func _on_ConfirmBtn_pressed():
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			global.mouseactive = true
 		else:
-			$NinePatchRect/VBoxContainer/Genres.text = "Given file cannot be played."
+			_genreLbl.text = "Given file cannot be played."
 
 
 func determineFileType():
@@ -136,15 +142,15 @@ func determineFileType():
 		return AudioStreamMP3.new()
 
 func displayGenres():
-	$NinePatchRect/VBoxContainer/Genres.text = "Genres: "
+	_genreLbl.text = "Genres: "
 	var file = File.new()
 	file.open("user://savedsongs.txt", file.READ)
 	while !file.eof_reached():
 		var entry = file.get_csv_line()
 		if entry[0] == filePath.get_file():
 			for e in range(1, entry.size() - 1):
-				$NinePatchRect/VBoxContainer/Genres.text += entry[e] + ", "
-			$"NinePatchRect/VBoxContainer/Genres".text += entry[entry.size() - 1]
+				_genreLbl.text += entry[e] + ", "
+			_genreLbl.text += entry[entry.size() - 1]
 			
 	
 # Attempting to add file to User data.
