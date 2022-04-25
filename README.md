@@ -7,29 +7,30 @@ fontsize: 10pt
 
 [![Build Godot Project](https://github.com/KevinHa48/scrum.jar/actions/workflows/build.yml/badge.svg)](https://github.com/KevinHa48/scrum.jar/actions/workflows/build.yml)
 
-# scrum.jar
-This project is a virtual reality game involving auditory and visual stimulations to provide a de-stressing experience for stressed industry professionals.
-This is an interactive music visualization game which uses a variety of inputs such as traditional computer inputs (keyboard, mouse) or virtual reality controls (motion controller) and soothing music and visuals to calm individuals and invoke a sense of relaxation through experiential immersion.
+# Saturday Morning Grooving
+Saturday Morning Grooving a 3D/VR game involving audio-reactive visual stimulation to provide a de-stressing experience for stressed industry professionals.
+This is an interactive music visualization game which uses a variety of inputs such as traditional computer inputs (keyboard, mouse), game controllers, or virtual reality controls (motion controllers) and soothing music and visuals to calm individuals and invoke a sense of relaxation through experiential immersion.
 The gameplay is simple to learn for everyone to maximize interactivity while minimizing stress. It uses a combination of both psychedelic and music therapy to achieve our project goal and offer a simple game that will help others to improve their mental state.
 
 ## Requirements
 - OpenVR implementation running in the background (usually SteamVR running via Steam)
 
-## Usage
+## Instructions
 - Download the executable for your platform (Windows and Linux are currently supported)
-    - Windows: <https://github.com/KevinHa48/scrum.jar/releases/download/s3/Client.-.windows.zip>
-    - Linux: <https://github.com/KevinHa48/scrum.jar/releases/download/s3/Client.-.linux.zip>
+    - Windows: <https://github.com/KevinHa48/scrum.jar/releases/download/s4/saturdaymorninggrooving_windows.zip>
+    - Linux: <https://github.com/KevinHa48/scrum.jar/releases/download/s4/saturdaymorninggrooving_linux.zip>
 - Extract the zip archive
-- Run the executable (currently named `example`)
+- Run the executable (named `saturdaymorninggrooving`)
 - Enter your name
-- Press `Play`
-- Click `Browse` to add a song to play
-- If you have already added songs, click `Uploaded` and select a song from there
-- Press `Confirm` when you know what you want to play
+- Press `Play` or `Destress` if you want to play without shooting any blocks.
+- Click `Browse` to add a song to play.
+- If you have already added songs, click `Uploaded` and select a song from there.
+- Press `Confirm` when you know what you want to play.
 - Once your music starts playing, aim your cursor at the falling boxes and press the left mouse button or right trigger on a controller to hit the box.
 - For each box you successfully hit, you will receive points based on how close the box is to the ground when it falls
     - The higher the box, the greater the points.
 - During the length of your song, try to maximize the amount of boxes you can hit.
+- After the song you can view your score and your accuracy score and return to the main menu.
 
 ## Setting Up Development Environment
 - Install latest stable version of the Godot game engine (https://godotengine.org/download)

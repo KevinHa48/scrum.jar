@@ -18,11 +18,11 @@ jobs:
         id: build
         uses: josephbmanley/build-godot-action@v1.4.1
         with:
-          name: example
+          name: saturdaymorninggrooving
           preset: ${{ matrix.platform }}
           debugMode: "true"
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: Client - ${{ matrix.platform }}
+          name: saturdaymorninggrooving_${{ matrix.platform }}
           path: ${{ github.workspace }}/${{ steps.build.outputs.build }}
