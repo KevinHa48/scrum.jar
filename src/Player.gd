@@ -76,7 +76,7 @@ func _process(_delta):
 	_timeLbl.set_text(_format_remaining_time())
 	_spring_arm.translation = translation
 	
-	if !enableGameplay:
+	if not enableGameplay or global.paused:
 		return
 		
 	if Input.is_action_just_pressed("fire"):

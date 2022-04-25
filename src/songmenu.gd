@@ -8,7 +8,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$MenuInterface/AudioPlayer
+	# var _status = $MenuInterface/AudioPlayer
 	$TitleScreen.visible = false
 	pass # Replace with function body.
 

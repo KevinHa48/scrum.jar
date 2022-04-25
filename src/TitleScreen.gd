@@ -58,5 +58,5 @@ func _onLineEdittextentered(textentered):
 	global.playername = textentered
 
 
-func _on_VRModeToggle_toggled(button_pressed):
+func _on_VRModeToggle_toggled(_button_pressed):
 	global.vrMode = !global.vrMode
