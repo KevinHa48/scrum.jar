@@ -29,10 +29,10 @@ rect_min_size = Vector2( 1024, 600 )
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 252.0
-margin_top = 147.0
-margin_right = -256.0
-margin_bottom = -129.0
+margin_left = 146.0
+margin_top = 98.0
+margin_right = -362.0
+margin_bottom = -178.0
 rect_min_size = Vector2( 512, 300 )
 rect_pivot_offset = Vector2( -203, -89 )
 texture = ExtResource( 1 )
@@ -55,10 +55,29 @@ text = "Music Visualizer Game
 "
 align = 1
 
-[node name="PlayBtn" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/VBoxContainer"]
 margin_top = 46.0
 margin_right = 426.0
-margin_bottom = 71.0
+margin_bottom = 86.0
+alignment = 1
+
+[node name="Label2" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer"]
+margin_left = 108.0
+margin_top = 13.0
+margin_right = 237.0
+margin_bottom = 27.0
+text = "Seizure Safety Mode"
+align = 1
+
+[node name="SafetyModeToggle" type="CheckButton" parent="NinePatchRect/VBoxContainer/HBoxContainer"]
+margin_left = 241.0
+margin_right = 317.0
+margin_bottom = 40.0
+
+[node name="PlayBtn" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
+margin_top = 90.0
+margin_right = 426.0
+margin_bottom = 115.0
 rect_min_size = Vector2( 80, 25 )
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 2 )
@@ -78,9 +97,9 @@ __meta__ = {
 }
 
 [node name="DestressBtn" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
-margin_top = 75.0
+margin_top = 119.0
 margin_right = 426.0
-margin_bottom = 100.0
+margin_bottom = 144.0
 rect_min_size = Vector2( 80, 25 )
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 2 )
@@ -99,10 +118,32 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="MusicUploadBtn" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
-margin_top = 104.0
+[node name="MusicPlayerBtn" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
+margin_top = 148.0
 margin_right = 426.0
-margin_bottom = 129.0
+margin_bottom = 173.0
+rect_min_size = Vector2( 80, 25 )
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 2 )
+texture_disabled = ExtResource( 2 )
+expand = true
+stretch_mode = 3
+
+[node name="MusicPlayerLbl" type="Label" parent="NinePatchRect/VBoxContainer/MusicPlayerBtn"]
+anchor_right = 1.0
+anchor_bottom = 0.84
+margin_bottom = 4.0
+text = "Music"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="MusicUploadBtn" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
+margin_top = 177.0
+margin_right = 426.0
+margin_bottom = 202.0
 rect_min_size = Vector2( 80, 25 )
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 2 )
@@ -125,9 +166,9 @@ __meta__ = {
 }
 
 [node name="OptsBtn" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
-margin_top = 133.0
+margin_top = 206.0
 margin_right = 426.0
-margin_bottom = 158.0
+margin_bottom = 231.0
 rect_min_size = Vector2( 80, 25 )
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 2 )
@@ -149,9 +190,9 @@ __meta__ = {
 }
 
 [node name="QuitBtn" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
-margin_top = 162.0
+margin_top = 235.0
 margin_right = 426.0
-margin_bottom = 187.0
+margin_bottom = 260.0
 rect_min_size = Vector2( 80, 25 )
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 2 )
@@ -171,39 +212,25 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="NinePatchRect/VBoxContainer"]
-margin_top = 191.0
+margin_top = 264.0
 margin_right = 426.0
-margin_bottom = 205.0
+margin_bottom = 278.0
 text = "Enter Name:"
 align = 1
 
 [node name="LineEdit" type="LineEdit" parent="NinePatchRect/VBoxContainer"]
-margin_top = 209.0
+margin_top = 282.0
 margin_right = 426.0
-margin_bottom = 233.0
+margin_bottom = 306.0
 
 [node name="Playername" type="Label" parent="NinePatchRect/VBoxContainer"]
-margin_top = 237.0
+margin_top = 310.0
 margin_right = 426.0
-margin_bottom = 251.0
+margin_bottom = 324.0
 script = ExtResource( 7 )
 
 [node name="AudioPlayer" type="AudioStreamPlayer2D" parent="NinePatchRect"]
 scale = Vector2( 1e-05, 1e-05 )
-
-[node name="SafetyModeToggle" type="CheckButton" parent="NinePatchRect"]
-margin_left = 287.0
-margin_top = 54.0
-margin_right = 363.0
-margin_bottom = 94.0
-
-[node name="Label2" type="Label" parent="NinePatchRect"]
-margin_left = 157.0
-margin_top = 68.0
-margin_right = 293.0
-margin_bottom = 82.0
-text = "Seizure Safety Mode"
-align = 1
 
 [node name="OptionsMenuScreen" parent="." instance=ExtResource( 6 )]
 visible = false
@@ -212,11 +239,12 @@ visible = false
 stream = ExtResource( 8 )
 autoplay = true
 
+[connection signal="toggled" from="NinePatchRect/VBoxContainer/HBoxContainer/SafetyModeToggle" to="." method="_on_SafetyModeToggle_toggled"]
 [connection signal="pressed" from="NinePatchRect/VBoxContainer/PlayBtn" to="." method="_on_PlayBtn_pressed"]
 [connection signal="pressed" from="NinePatchRect/VBoxContainer/DestressBtn" to="." method="_on_DestressBtn_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/MusicPlayerBtn" to="." method="_on_MusicPlayerBtn_pressed"]
 [connection signal="pressed" from="NinePatchRect/VBoxContainer/MusicUploadBtn" to="." method="_on_MusicUploadBtn_pressed"]
 [connection signal="toggled" from="NinePatchRect/VBoxContainer/MusicUploadBtn" to="." method="_on_MusicUploadBtn_toggled"]
 [connection signal="pressed" from="NinePatchRect/VBoxContainer/OptsBtn" to="." method="_on_OptsBtn_pressed"]
 [connection signal="pressed" from="NinePatchRect/VBoxContainer/QuitBtn" to="." method="_on_QuitBtn_pressed"]
 [connection signal="text_entered" from="NinePatchRect/VBoxContainer/LineEdit" to="." method="_onLineEdittextentered"]
-[connection signal="toggled" from="NinePatchRect/SafetyModeToggle" to="." method="_on_SafetyModeToggle_toggled"]
