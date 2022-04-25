@@ -57,10 +57,29 @@ text = "Music Visualizer Game
 "
 align = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="NinePatchRect/VBoxContainer"]
 margin_top = 46.0
 margin_right = 426.0
 margin_bottom = 86.0
+alignment = 1
+
+[node name="Label3" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer2"]
+margin_left = 110.0
+margin_top = 13.0
+margin_right = 235.0
+margin_bottom = 27.0
+text = "VR Mode (Destress)"
+align = 1
+
+[node name="VRModeToggle" type="CheckButton" parent="NinePatchRect/VBoxContainer/HBoxContainer2"]
+margin_left = 239.0
+margin_right = 315.0
+margin_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/VBoxContainer"]
+margin_top = 90.0
+margin_right = 426.0
+margin_bottom = 130.0
 alignment = 1
 
 [node name="Label2" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer"]
@@ -77,9 +96,9 @@ margin_right = 317.0
 margin_bottom = 40.0
 
 [node name="PlayBtn" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
-margin_top = 90.0
+margin_top = 134.0
 margin_right = 426.0
-margin_bottom = 115.0
+margin_bottom = 159.0
 rect_min_size = Vector2( 80, 25 )
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 2 )
@@ -99,9 +118,9 @@ __meta__ = {
 }
 
 [node name="DestressBtn" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
-margin_top = 119.0
+margin_top = 163.0
 margin_right = 426.0
-margin_bottom = 144.0
+margin_bottom = 188.0
 rect_min_size = Vector2( 80, 25 )
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 2 )
@@ -121,9 +140,9 @@ __meta__ = {
 }
 
 [node name="MusicPlayerBtn" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
-margin_top = 148.0
+margin_top = 192.0
 margin_right = 426.0
-margin_bottom = 173.0
+margin_bottom = 217.0
 rect_min_size = Vector2( 80, 25 )
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 2 )
@@ -143,9 +162,9 @@ __meta__ = {
 }
 
 [node name="MusicUploadBtn" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
-margin_top = 177.0
+margin_top = 221.0
 margin_right = 426.0
-margin_bottom = 202.0
+margin_bottom = 246.0
 rect_min_size = Vector2( 80, 25 )
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 2 )
@@ -168,9 +187,9 @@ __meta__ = {
 }
 
 [node name="OptsBtn" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
-margin_top = 206.0
+margin_top = 250.0
 margin_right = 426.0
-margin_bottom = 231.0
+margin_bottom = 275.0
 rect_min_size = Vector2( 80, 25 )
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 2 )
@@ -192,9 +211,9 @@ __meta__ = {
 }
 
 [node name="QuitBtn" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
-margin_top = 235.0
+margin_top = 279.0
 margin_right = 426.0
-margin_bottom = 260.0
+margin_bottom = 304.0
 rect_min_size = Vector2( 80, 25 )
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 2 )
@@ -214,53 +233,25 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="NinePatchRect/VBoxContainer"]
-margin_top = 264.0
+margin_top = 308.0
 margin_right = 426.0
-margin_bottom = 278.0
+margin_bottom = 322.0
 text = "Enter Name:"
 align = 1
 
 [node name="LineEdit" type="LineEdit" parent="NinePatchRect/VBoxContainer"]
-margin_top = 282.0
+margin_top = 326.0
 margin_right = 426.0
-margin_bottom = 306.0
+margin_bottom = 350.0
 
 [node name="Playername" type="Label" parent="NinePatchRect/VBoxContainer"]
-margin_top = 310.0
+margin_top = 354.0
 margin_right = 426.0
-margin_bottom = 324.0
+margin_bottom = 368.0
 script = ExtResource( 7 )
 
 [node name="AudioPlayer" type="AudioStreamPlayer2D" parent="NinePatchRect"]
 scale = Vector2( 1e-05, 1e-05 )
-
-[node name="SafetyModeToggle" type="CheckButton" parent="NinePatchRect"]
-margin_left = 180.0
-margin_top = 55.0
-margin_right = 256.0
-margin_bottom = 95.0
-
-[node name="VRModeToggle" type="CheckButton" parent="NinePatchRect"]
-margin_left = 388.0
-margin_top = 56.0
-margin_right = 464.0
-margin_bottom = 96.0
-
-[node name="Label3" type="Label" parent="NinePatchRect"]
-margin_left = 256.0
-margin_top = 69.0
-margin_right = 392.0
-margin_bottom = 83.0
-text = "VR Mode (Destress)"
-align = 1
-
-[node name="Label2" type="Label" parent="NinePatchRect"]
-margin_left = 48.0
-margin_top = 68.0
-margin_right = 184.0
-margin_bottom = 82.0
-text = "Seizure Safety Mode"
-align = 1
 
 [node name="Highscore" type="Label" parent="NinePatchRect"]
 anchor_left = 0.091
@@ -302,6 +293,7 @@ visible = false
 stream = ExtResource( 8 )
 autoplay = true
 
+[connection signal="toggled" from="NinePatchRect/VBoxContainer/HBoxContainer2/VRModeToggle" to="." method="_on_VRModeToggle_toggled"]
 [connection signal="toggled" from="NinePatchRect/VBoxContainer/HBoxContainer/SafetyModeToggle" to="." method="_on_SafetyModeToggle_toggled"]
 [connection signal="pressed" from="NinePatchRect/VBoxContainer/PlayBtn" to="." method="_on_PlayBtn_pressed"]
 [connection signal="pressed" from="NinePatchRect/VBoxContainer/DestressBtn" to="." method="_on_DestressBtn_pressed"]
@@ -311,5 +303,3 @@ autoplay = true
 [connection signal="pressed" from="NinePatchRect/VBoxContainer/OptsBtn" to="." method="_on_OptsBtn_pressed"]
 [connection signal="pressed" from="NinePatchRect/VBoxContainer/QuitBtn" to="." method="_on_QuitBtn_pressed"]
 [connection signal="text_entered" from="NinePatchRect/VBoxContainer/LineEdit" to="." method="_onLineEdittextentered"]
-[connection signal="toggled" from="NinePatchRect/SafetyModeToggle" to="." method="_on_SafetyModeToggle_toggled"]
-[connection signal="toggled" from="NinePatchRect/VRModeToggle" to="." method="_on_VRModeToggle_toggled"]
