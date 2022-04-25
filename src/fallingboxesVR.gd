@@ -11,8 +11,6 @@ var maxCubes = 400
 # var b = "text"
 var cubes = []
 
-var enabledGameplay = global.play_origin != 'destress'
-
 func on_newCube_body_entered(body):
 	# If cube has collided with ground, delete it from the scene and the list.
 	cubes.remove(cubes.find(body))
@@ -22,6 +20,10 @@ func on_newCube_body_entered(body):
 func _ready():
 	rng = RandomNumberGenerator.new()
 	fallingCube = get_node("FallingBox")
+	var interface = ARVRServer.find_interface("OpenVR")
+	if interface and interface.initialize():
+		# make sure vsync is disabled or we'll be limited to 60fps
+		OS.vsync_enabled = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -29,8 +31,6 @@ func _process(_delta):
 	if not global.songplaying:
 		deleteAllCubes()
 		return
-	if enabledGameplay:
-		_retical.visible = not global.paused
 	var sum = 0
 	for n in global.histogram:
 		sum += n

@@ -1,6 +1,9 @@
 extends Control
 
-
+onready var _audio_player = $NinePatchRect/AudioPlayer
+onready var _container = $NinePatchRect
+onready var _upload_screen = $MusicUploadScreen
+onready var _opts_screen = $OptionsMenuScreen
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -8,7 +11,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var _audio_player = $NinePatchRect/AudioPlayer
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -16,8 +19,8 @@ func _ready():
 #	pass
 
 func _on_MusicUploadBtn_pressed():
-	$NinePatchRect.visible = false
-	$MusicUploadScreen.visible = true
+	_container.visible = false
+	_upload_screen.visible = true
 
 
 func _on_MusicUploadBtn_toggled():
@@ -29,8 +32,8 @@ func _on_QuitBtn_pressed():
 
 
 func _on_OptsBtn_pressed():
-	$NinePatchRect.visible = false
-	$OptionsMenuScreen.visible = true
+	_container.visible = false
+	_opts_screen.visible = true
 
 func _on_PlayBtn_pressed():
 	global.shots_fired = 0
@@ -39,10 +42,12 @@ func _on_PlayBtn_pressed():
 	global.play_origin = 'normal'
 	var _status = get_tree().change_scene("res://src/Spatial.tscn")
 
-
 func _on_DestressBtn_pressed():
 	global.play_origin = 'destress'
-	var _status = get_tree().change_scene("res://src/Spatial.tscn")
+	if global.vrMode:
+		var _status = get_tree().change_scene("res://src/SpatialVR.tscn")
+	else:
+		var _status = get_tree().change_scene("res://src/Spatial.tscn")
 	
 func _on_SafetyModeToggle_toggled(_button_pressed):
 	# Initially set to false
@@ -55,3 +60,5 @@ func _onLineEdittextentered(textentered):
 
 func _on_MusicPlayerBtn_pressed():
 	var _status = get_tree().change_scene("res://src/MusicPlayer.tscn")
+func _on_VRModeToggle_toggled(_button_pressed):
+	global.vrMode = !global.vrMode

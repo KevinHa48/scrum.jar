@@ -12,16 +12,11 @@ config_version=4
 
 config/name="Scrum.jar"
 run/main_scene="res://src/TitleScreen.tscn"
-config/icon="res://icon.png"
+config/icon="res://assets/logo.png"
 
 [autoload]
 
 global="*res://src/global.gd"
-
-[display]
-
-window/size/width=1024
-window/size/height=600
 
 [gdnative]
 
