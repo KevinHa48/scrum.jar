@@ -39,10 +39,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -258.0
-margin_top = -165.0
-margin_right = 254.0
-margin_bottom = 162.0
+margin_left = -256.0
+margin_top = -163.5
+margin_right = 256.0
+margin_bottom = 163.5
 rect_min_size = Vector2( 512, 300 )
 rect_pivot_offset = Vector2( -203, -89 )
 
@@ -298,12 +298,20 @@ margin_right = 113.98
 margin_bottom = 21.16
 script = ExtResource( 10 )
 
-[node name="OptionsMenuScreen" parent="." instance=ExtResource( 6 )]
-visible = false
-
 [node name="TitleBackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 autoplay = true
+
+[node name="OptionsMenuScreen" parent="." instance=ExtResource( 6 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -337.5
+margin_top = -263.0
+margin_right = 337.5
+margin_bottom = 263.0
 
 [connection signal="toggled" from="NinePatchRect/VBoxContainer/HBoxContainer2/VRModeToggle" to="." method="_on_VRModeToggle_toggled"]
 [connection signal="toggled" from="NinePatchRect/VBoxContainer/HBoxContainer/SafetyModeToggle" to="." method="_on_SafetyModeToggle_toggled"]
