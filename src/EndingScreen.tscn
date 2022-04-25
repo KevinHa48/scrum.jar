@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/ScreenBackgroundTextTemp.jpg" type="Texture" id=1]
 [ext_resource path="res://src/endingscreen.gd" type="Script" id=2]
 [ext_resource path="res://src/SongMenu.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/TitleScreen.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/ScoreValue.gd" type="Script" id=5]
+[ext_resource path="res://src/highscores.gd" type="Script" id=6]
 
 [node name="Ending Screen" type="Control"]
 anchor_right = 1.0
@@ -83,6 +84,80 @@ margin_top = 48.0
 margin_right = 581.0
 margin_bottom = 68.0
 text = "To Main Menu"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MenuInterface"]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 150.0
+margin_bottom = 350.0
+
+[node name="TopScoresBox" type="HBoxContainer" parent="MenuInterface/VBoxContainer2"]
+margin_right = 100.0
+margin_bottom = 14.0
+alignment = 1
+
+[node name="TopScoresLabel" type="Label" parent="MenuInterface/VBoxContainer2/TopScoresBox"]
+margin_left = 15.0
+margin_right = 84.0
+margin_bottom = 14.0
+text = "Top Scores"
+align = 1
+valign = 1
+
+[node name="ScoresVBox" type="VBoxContainer" parent="MenuInterface/VBoxContainer2"]
+margin_top = 18.0
+margin_right = 100.0
+margin_bottom = 104.0
+script = ExtResource( 6 )
+
+[node name="Score1" type="HBoxContainer" parent="MenuInterface/VBoxContainer2/ScoresVBox"]
+margin_right = 100.0
+margin_bottom = 14.0
+
+[node name="Label" type="Label" parent="MenuInterface/VBoxContainer2/ScoresVBox/Score1"]
+margin_right = 97.0
+margin_bottom = 14.0
+text = "1. Name: Score"
+
+[node name="Score2" type="HBoxContainer" parent="MenuInterface/VBoxContainer2/ScoresVBox"]
+margin_top = 18.0
+margin_right = 100.0
+margin_bottom = 32.0
+
+[node name="Label" type="Label" parent="MenuInterface/VBoxContainer2/ScoresVBox/Score2"]
+margin_right = 97.0
+margin_bottom = 14.0
+text = "1. Name: Score"
+
+[node name="Score3" type="HBoxContainer" parent="MenuInterface/VBoxContainer2/ScoresVBox"]
+margin_top = 36.0
+margin_right = 100.0
+margin_bottom = 50.0
+
+[node name="Label" type="Label" parent="MenuInterface/VBoxContainer2/ScoresVBox/Score3"]
+margin_right = 97.0
+margin_bottom = 14.0
+text = "1. Name: Score"
+
+[node name="Score4" type="HBoxContainer" parent="MenuInterface/VBoxContainer2/ScoresVBox"]
+margin_top = 54.0
+margin_right = 100.0
+margin_bottom = 68.0
+
+[node name="Label" type="Label" parent="MenuInterface/VBoxContainer2/ScoresVBox/Score4"]
+margin_right = 97.0
+margin_bottom = 14.0
+text = "1. Name: Score"
+
+[node name="Score5" type="HBoxContainer" parent="MenuInterface/VBoxContainer2/ScoresVBox"]
+margin_top = 72.0
+margin_right = 100.0
+margin_bottom = 86.0
+
+[node name="Label" type="Label" parent="MenuInterface/VBoxContainer2/ScoresVBox/Score5"]
+margin_right = 97.0
+margin_bottom = 14.0
+text = "1. Name: Score"
 
 [connection signal="pressed" from="MenuInterface/VBoxContainer/VBoxContainer2/Selection" to="." method="_on_Selection_pressed"]
 [connection signal="pressed" from="MenuInterface/VBoxContainer/VBoxContainer2/Replay" to="." method="_on_Replay_pressed"]
