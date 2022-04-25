@@ -67,6 +67,10 @@ func _process(_delta):
 	if not global.songplaying:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		global.mouseactive = false
+		global.scores.append([global.player_points, global.playername])
+		if global.player_points > global.highscore:
+			global.highscore = global.player_points
+			global.highscore_name = global.playername
 		var _status = get_tree().change_scene("res://src/EndingScreen.tscn")
 		return
 	_timeLbl.set_text(_format_remaining_time())

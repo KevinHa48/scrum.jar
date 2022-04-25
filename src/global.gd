@@ -11,6 +11,9 @@ var player_points = 0
 var shots_hit = 0
 var shots_fired = 0
 var acc_score = 0
+var scores = []
+var highscore = 0
+var highscore_name = "Player"
 
 var histogram = []
 var definition = 60
