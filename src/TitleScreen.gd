@@ -58,5 +58,7 @@ func _onLineEdittextentered(textentered):
 	global.playername = textentered
 
 
+func _on_MusicPlayerBtn_pressed():
+	var _status = get_tree().change_scene("res://src/MusicPlayer.tscn")
 func _on_VRModeToggle_toggled(_button_pressed):
 	global.vrMode = !global.vrMode

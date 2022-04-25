@@ -154,10 +154,12 @@ custom_fonts/font = SubResource( 13 )
 text = "Hits:"
 
 [node name="SafetyModeLbl" type="Label" parent="Player/SpringArm/OVRFirstPerson"]
-margin_left = 10.0
-margin_top = 567.0
-margin_right = 124.0
-margin_bottom = 585.0
+anchor_top = 0.96
+anchor_bottom = 0.96
+margin_left = 3.0
+margin_top = -3.0
+margin_right = 117.0
+margin_bottom = 15.0
 text = "Safety Mode: ON"
 align = 1
 valign = 2
