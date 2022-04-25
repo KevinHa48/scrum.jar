@@ -13,6 +13,7 @@ config_version=4
 config/name="Scrum.jar"
 run/main_scene="res://src/TitleScreen.tscn"
 config/icon="res://assets/logo.png"
+config/windows_native_icon=""
 
 [autoload]
 
