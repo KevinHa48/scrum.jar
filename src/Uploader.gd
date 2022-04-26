@@ -163,3 +163,7 @@ func addToMusicDir():
 	var dir = Directory.new()
 	dir.make_dir(musicDir)
 	dir.copy(filePath, musicDir + filePath.get_file())
+
+
+func _on_BackBtn_pressed():
+	var _status = get_tree().change_scene("res://src/TitleScreen.tscn")

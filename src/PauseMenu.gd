@@ -1,6 +1,8 @@
 extends Control
 
 var is_paused = false setget set_is_paused
+onready var _retical = get_node("/root/Spatial/Player/SpringArm/OVRFirstPerson/Retical")
+
 
 func _unhandled_input(event):
 	if event.is_action_pressed('pause'):
@@ -45,4 +47,8 @@ func _on_ResetBtn_pressed():
 	
 func _on_TitleBtn_pressed():
 	global.songchosen = false
+	global.safetyMode = false
+	global.songplaying = false
+	global.paused = false
+	_retical.visible = false
 	var _status = get_tree().change_scene("res://src/TitleScreen.tscn")
