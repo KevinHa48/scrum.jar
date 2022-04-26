@@ -144,13 +144,18 @@ func determineFileType():
 func displayGenres():
 	_genreLbl.text = "Genres: "
 	var file = File.new()
-	file.open("user://savedsongs.txt", file.READ)
-	while !file.eof_reached():
-		var entry = file.get_csv_line()
-		if entry[0] == filePath.get_file():
-			for e in range(1, entry.size() - 1):
-				_genreLbl.text += entry[e] + ", "
-			_genreLbl.text += entry[entry.size() - 1]
+	
+	# Check since savedsongs.txt does not exist on a clean project state.
+	if file.file_exists("user://savedsongs.txt"):
+		file.open("user://savedsongs.txt", File.READ)
+		while !file.eof_reached():
+			var entry = file.get_csv_line()
+			if entry[0] == filePath.get_file():
+				for e in range(1, entry.size() - 1):
+					_genreLbl.text += entry[e] + ", "
+				_genreLbl.text += entry[entry.size() - 1]
+	else:
+		file.open("user://savedsongs.txt", File.WRITE)
 			
 	
 # Attempting to add file to User data.

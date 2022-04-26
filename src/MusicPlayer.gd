@@ -64,3 +64,8 @@ func determineFileType(current_song):
 		return AudioStreamSample.new()
 	elif current_song.ends_with(".mp3"):
 		return AudioStreamMP3.new()
+
+
+
+func _on_BackToMainMenuBtn_pressed():
+	var _status = get_tree().change_scene("res://src/TitleScreen.tscn")
